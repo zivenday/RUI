@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-14 10:00:23 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-21 05:38:24
+ * @Last Modified time: 2018-06-21 05:46:02
  */
 'use strict'
 const path = require('path')
@@ -162,7 +162,7 @@ module.exports = {
       inject: true
     }),
     new webpack.DefinePlugin({
-      'process.env.HOST_ENV': '\"' + process.env.HOST_ENV + '\"'
+      'process.env.HOST_ENV': '\"' + process.env.BUILD_ENV + '\"'
     })
   ],
   node: {

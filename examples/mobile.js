@@ -8,6 +8,7 @@ import routers from './router'
 import RLEM from '../lib'
 import '../lib/theme/index.css'
 // import RLEM from 'recharger'
+console.log('>>>>>>>>>')
 Vue.use(RLEM)
 const router = new VueRouter({
   mode: 'hash',
