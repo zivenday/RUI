@@ -13,7 +13,7 @@ export default {
   name: 'App',
   data () {
     return {
-      simulators: [`/examples.html#/zh-CN/index`],
+      simulators: [(process.env.BUILD_ENV === 'prod' ? '/RUI/dist' : '') + '/examples.html#/zh-CN/index'],
       config: config['zh-CN']
     }
   },

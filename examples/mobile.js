@@ -8,11 +8,12 @@ import routers from './router'
 import RLEM from '../lib'
 import '../lib/theme/index.css'
 // import RLEM from 'recharger'
-console.log('>>>>>>>>>')
+console.log('>>>>>>>>>',(process.env.BUILD_ENV==='prod'?'/RUI/dist':'')+'/examples.html')
+// const base=
 Vue.use(RLEM)
 const router = new VueRouter({
   mode: 'hash',
-  base: (process.env.BUILD_ENV==='dev'?'':'/RUI/dist')+'/examples.html',
+  base: (process.env.BUILD_ENV==='prod'?'/RUI/dist':'')+'/examples.html',
   // base: '/examples.html',
   routes: routers(true)
 })
