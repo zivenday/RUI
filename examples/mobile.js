@@ -11,7 +11,7 @@ import '../lib/theme/index.css'
 Vue.use(RLEM)
 const router = new VueRouter({
   mode: 'hash',
-  base: (process.env.BUILD_ENV==='dev'?'':'/recharger/dist')+'/examples.html',
+  base: (process.env.BUILD_ENV==='dev'?'':'/RUI/dist')+'/examples.html',
   // base: '/examples.html',
   routes: routers(true)
 })
