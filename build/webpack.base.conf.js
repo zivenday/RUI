@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-14 10:00:23 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-19 22:02:43
+ * @Last Modified time: 2018-06-21 05:38:24
  */
 'use strict'
 const path = require('path')
@@ -10,7 +10,7 @@ const utils = require('./utils')
 const config = require('../config')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const vueLoaderConfig = require('./vue-loader.conf')
-
+const webpack = require('webpack')
 // const striptags = require('./strip-tag')
 // const MarkdownItContainer = require('markdown-it-container')
 
@@ -161,6 +161,9 @@ module.exports = {
       filename: 'examples.html',
       inject: true
     }),
+    new webpack.DefinePlugin({
+      'process.env.HOST_ENV': '\"' + process.env.HOST_ENV + '\"'
+    })
   ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
