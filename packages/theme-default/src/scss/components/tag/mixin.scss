@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+@import "../../helps/var.scss";
+
+@mixin tag-variant($background-fill,$border){
+  background-color: $background-fill;
+  border: $border
+}

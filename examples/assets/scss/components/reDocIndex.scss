@@ -1,0 +1,113 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-05-31 16:00:28 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-06-04 17:31:21
+ */
+
+@charset 'utf-8';
+@import '../normalize';
+@import '../base';
+@import '../help/functions';
+$boxRow:10 !default;
+$boxColum:20 !default;
+
+.re-doc-index {
+    position: relative;
+    width: 100%; //  background: #fb8800;
+    height: 100%;
+    overflow: hidden;
+    &__top {
+        position: relative;
+        width:100%;
+        min-width: 100%;
+        background-color: #E4E4E1;
+        background-image: radial-gradient(at top center, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.03) 100%), linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(143, 152, 157, 0.60) 100%);
+        background-blend-mode: normal, multiply;
+        display: inline-block;
+        box-sizing: border-box;
+        overflow: hidden;
+        %box-base {
+            width: 5%;
+            padding-bottom: 5%;
+            background: #fff;
+            opacity: 0;
+            display: block;
+            float: left;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        @for $i from 1 through 100 {
+            @if $i<=45 {
+                &>span:nth-child(#{$i}) {
+                    @extend %box-base;
+                    animation: animate-opacity 15s (random(20)+.3)+s infinite;
+                }
+            }
+            @else if $i>=80 {
+                &>span:nth-child(#{$i}) {
+                    @extend %box-base;
+                    animation: animate-opacity 15s (random(20)+.4)+s infinite;
+                }
+            }
+            @else {
+                &>span:nth-child(#{$i}) {
+                    @extend %box-base;
+                }
+            }
+        }
+        @keyframes animate-opacity {
+            0%,
+            50% {
+                opacity: 0;
+            }
+            25% {
+                opacity: .35;
+            }
+        }
+    } // &__top>div {
+    //     animation: animate-opacity 20s random(10)+s infinite;
+    // }
+    &__top::before {
+        position: absolute;
+        display: block;
+        content: '';
+        background-image: url(../assets/image/15280966726844.png);
+        background-size: 100% 100%;
+        width: 350px;
+        height: 250px;
+        left: 50%;
+        top: 50%;
+        margin-left: -175px;
+        margin-top: -125px;
+    }
+    &__bottom {
+        position: absolute;
+        top: 420px;
+        left: 0;
+        bottom:0;
+        width: 100%;
+        padding: 100px;
+        box-sizing: border-box;
+        transition:all ease-in-out 0.3s;
+        overflow: hidden;
+        &>div {
+            padding: 5px
+        }
+        &>div:first-child {
+            font-size: 30px;
+            font-weight: 450
+        }
+        &>div:last-child {
+            span {
+                display: inline-block;
+                cursor: pointer;
+                width: 100px;
+                font-weight: 500;
+                line-height: 40px;
+                font-size: 15px;
+                transition:all ease-in-out 0.3s;
+            }
+        }
+    }
+}

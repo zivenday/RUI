@@ -1,0 +1,65 @@
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@import "./mixin.scss";
+
+@include b(button) {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: $--button-default-fill;
+  border: $--border-base;
+  color: $--button-default-color;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  border-radius: $--border-radius-base;
+  padding: 12px 20px;
+  font-size: $--button-font-size;
+  transition: all .28s cubic-bezier(.71,-.46,.29,1.46);
+  .iconfont{
+    font-size:$--button-font-size;
+    margin:0 5px;
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover,
+    &:focus {
+      color: $--button-disabled-color;
+      cursor: not-allowed;
+      background-image: none;
+      background-color: $--button-disabled-fill;
+      border-color: $--button-disabled-border;
+    }
+
+    &.el-button--text {
+      background-color: transparent;
+    }
+
+    &.is-plain {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $--color-white;
+        border-color: $--button-disabled-border;
+        color: $--button-disabled-color;
+      }
+    }
+  }
+  @include m(primary) {
+    @include button-variant($--button-primary-color, $--button-primary-fill, $--button-primary-border);
+  }
+  @include m(plain) {
+    @include button-variant($--button-plain-color, $--button-plain-fill, $--button-plain-border);
+  }
+  @include m(small) {
+    @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+  }
+  @include m(fix) {
+    @include button-fix($--button-fix-font-size, $--button-fix-width, $--button-fix-height);
+  }
+
+}

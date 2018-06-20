@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "loose": true,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  "comments": false,
+  "plugins": ["transform-vue-jsx", "transform-runtime","transform-object-rest-spread"],
+  "env": {
+    "commonjs": {
+      "presets": [["env", { "modules": "commonjs", "loose": true }]]
+    }
+  }
+}

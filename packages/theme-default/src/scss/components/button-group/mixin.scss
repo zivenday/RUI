@@ -1,0 +1,44 @@
+@mixin group-size($-group-width){
+  /*group 平均分割限制在7平分以内*/
+  /* one item */
+  &:first-child:nth-last-child(1) {
+    width: $-group-width;
+  }
+  /* two items */
+  &:first-child:nth-last-child(2),
+  &:first-child:nth-last-child(2) ~ button {
+    width: calc(#{$-group-width}*0.5);
+  }
+  /* three items */
+  &:first-child:nth-last-child(3),
+  &:first-child:nth-last-child(3) ~ button {
+    width: calc(#{$-group-width}*0.33333);
+  }
+  /* four items */
+  &:first-child:nth-last-child(4),
+  &:first-child:nth-last-child(4) ~ button {
+    width: calc(#{$-group-width}*0.25);
+  }
+  /* five items */
+  &:first-child:nth-last-child(5),
+  &:first-child:nth-last-child(5) ~ button {
+    width: calc(#{$-group-width}*0.2);
+  }
+  /* six items */
+  &:first-child:nth-last-child(6),
+  &:first-child:nth-last-child(6) ~ button {
+    width: calc(#{$-group-width}*0.166666);
+  }
+  /* six items */
+  &:first-child:nth-last-child(7),
+  &:first-child:nth-last-child(7) ~ button {
+    width: calc(#{$-group-width}*0.1428571);
+  }
+}
+
+@mixin button-group-fix($font-size,$group-width,$height){
+   @include group-size($group-width);
+  &{
+    height: $height;
+  }
+}

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@import "./mixin.scss";
+
+@include b(tag) {
+  display: inline-block;
+  padding: $--tag-padding;
+  border-radius: 5px;
+  color:$--tag-color;
+  line-height: $--tag-line-height;
+  font-size: $--tag-font-size;
+  background-color: $--tag-primary-color;
+  border: $--tag-primary-border;
+  @include m(primary){
+   @include tag-variant($--tag-primary-color,$--tag-primary-border)
+  }
+  @include m(info){
+    @include tag-variant($--tag-info-color,$--tag-info-border)
+  }
+  @include m(error){
+    @include tag-variant($--tag-error-color,$--tag-error-border)
+  }
+  @include m(temp){
+    @include tag-variant($--tag-temp-color,$--tag-temp-border)
+  }
+  @include m(success){
+    @include tag-variant($--tag-success-color,$--tag-success-border)
+  }
+  @include m(warning){
+    @include tag-variant($--tag-warning-color,$--tag-warning-border)
+  }
+  @include m(danger){
+    @include tag-variant($--tag-danger-color,$--tag-danger-border)
+  }
+}

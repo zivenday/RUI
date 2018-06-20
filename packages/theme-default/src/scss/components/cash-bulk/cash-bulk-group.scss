@@ -1,0 +1,8 @@
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@import "../../helps/function.scss";
+
+@include b(cash-bulk-group) {
+  display: inline-block;
+  vertical-align: middle;
+}

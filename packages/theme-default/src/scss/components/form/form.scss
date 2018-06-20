@@ -1,0 +1,15 @@
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+
+@include b(form) {
+  @include when(error){
+    & .r-input__inner{
+      border-color: $--color-danger;
+    }
+  }
+  @include when(success){
+    & .r-input__inner{
+      border-color: $--color-success;
+    }
+  }
+}

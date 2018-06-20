@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@import "../../helps/function.scss";
+
+@include b(auto-complete) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    &__inner{
+        border-bottom: 1px solid rgba($color: $--color-black, $alpha: 0.1)
+    }
+    
+}

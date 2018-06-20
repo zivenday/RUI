@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@import "../../helps/function.scss";
+
+@include b(auto-suggestion) {
+    display: flex;
+    max-height: 132px;    
+    position: relative;
+    justify-content: center;
+    z-index: 2018;
+    overflow-y: auto;
+    width: 100%;
+    justify-content: center;
+    background-color: $--color-white;
+    // transition: all linear 0.3s;
+    // &__down{
+    //   height: auto;
+    // }
+    // &__up{
+    //   height: 0;
+    // }
+    & ul li{
+      display: block;
+      height: 33px;
+      line-height: 1;
+      font-size: 14px;
+      padding:10px 5px;
+      margin: 0 auto;
+      text-align: left;
+      box-sizing: border-box;
+      letter-spacing: 1px;
+      list-style: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border:0;
+      cursor: pointer;
+    }
+     ul li:not(:last-child){
+      border-bottom: 1px solid rgba($color:$--color-black, $alpha: 0.1)
+    }
+    
+}
