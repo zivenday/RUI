@@ -27,7 +27,7 @@ new Vue({
 
 ## 适配 Adaptive
 
-为了得到更加灵活的适配性,Recharger是根据视口单位vw作为长度单位的,并且使用了以下几个插件来进行支持：
+为了得到更加灵活的适配性,Recharger是根据视口单位vw作为长度单位的。vw相比px,rem的确有更加好的适配性，尤其是在移动端的使用上，然而它也有局限性，有一定的兼容性问题。不过，Recharger已经在应用之前已经做了兼容性问题的解决。Recharger为了解决这个问题用到了一些核心插件以及profill：
 
 ```
 postcss-px-to-viewport px转vw工具

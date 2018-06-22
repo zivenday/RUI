@@ -2,8 +2,9 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 15:38:26
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-21 04:58:20
+ * @Last Modified time: 2018-06-22 09:20:15
  */
+
 
 import RButton from '../packages/button/index.js'
 import RLead from '../packages/lead/index.js'
@@ -51,6 +52,7 @@ const components = [
 
 const install = function (Vue, opts = {}) {
   // if (install.installed)
+  window.onload = function () { require('viewport-units-buggyfill').init({ hacks: window.viewportUnitsBuggyfillHacks })
   components.map(component => {
     Vue.component(component.name, component)
   })

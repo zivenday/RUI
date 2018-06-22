@@ -6,40 +6,62 @@ var sass = require('gulp-sass');
 var cssmin = require('gulp-cssmin');
 var plumber = require('gulp-plumber');//异常处理，防止出现异常时，退出watch
 var postcss = require('gulp-postcss'); //JavaScript 代码来转换CSS 中的样式
-var autoprefixer = require('gulp-autoprefixer'); //自动加上浏览器前缀
 var imagemin = require('gulp-imagemin'); // 引入压缩图片插件
 // UI设计稿750px宽，那么100vw = 750px，即1vw = 7.5px
+
 var pxtoviewport = require('postcss-px-to-viewport'); // 代码中写px编译后转化成vm
+var postcssimport = require('postcss-import')
+var postcssurl = require('postcss-url')
+var postcssaspectratiomini = require('postcss-aspect-ratio-mini')
+var postcsswritesvg = require('postcss-write-svg')
+var postcsscssnext = require('postcss-cssnext')
+var postcssviewportunits = require('postcss-viewport-units')
+var cssnano = require('cssnano')
 
 var concat = require('gulp-concat-dir');//- 多个文件合并为一个；
+var mkdirp = require('mkdirp');
 var replace = require('gulp-replace');
 var clean = require('gulp-clean');
 
+
+var themedir = '../../lib/theme/', imgdir = '../../lib/theme/img/', iconfontdir = '../../lib/theme/iconfont/'
+var dirs = [themedir, imgdir, iconfontdir]
+
+
 var processors = [
+  postcssimport(),
+  postcssurl(),
+  postcssaspectratiomini(),
+  postcsswritesvg({ utf8: false }),
+  postcsscssnext(),
   pxtoviewport({
-    viewportWidth: 375, //注意：按照100vw=375px 转化
+    viewportWidth: 750, //注意：按照100vw=375px 转化
     viewportHeight: 1334,
     unitPrecision: 5,
     viewportUnit: 'vw',
     selectorBlackList: [],
     minPixelValue: 1,
     mediaQuery: false
+  }),
+  postcssviewportunits(),
+  cssnano({
+    preset: "advanced",
+    autoprefixer: false,
+    "postcss-zindex": false
   })
 ];
-gulp.task('sass', function () {
+gulp.task('sass', ['create'], function () {
   return gulp.src(['./src/scss/components/**/*.scss', './src/scss/index.scss'])
     .pipe(plumber())
     .pipe(sass())
-    .pipe(postcss(processors))
-    .pipe(autoprefixer())
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(concat({ext: '.css'}))
+    .pipe(postcss(processors))
+    .pipe(concat({ ext: '.css' }))
     .pipe(replace('assets/', ''))
-    .pipe(cssmin())
-    .pipe(gulp.dest('../../theme/'))
+    .pipe(gulp.dest('../../lib/theme/'))
 });
 
-gulp.task('img', function () {
+gulp.task('img', ['create'], function () {
   gulp.src('./src/assets/img/*.{png,jpg,gif,ico}')
     .pipe(plumber())
     .pipe(imagemin({
@@ -48,23 +70,30 @@ gulp.task('img', function () {
       interlced: true, //Boolean类型 默认false 隔行扫描gif进行渲染
       multipass: true //Boolean类型 默认false 多次优化svg直到完全优化
     }))
-    .pipe(gulp.dest('../../theme/img')) //输入到build文件夹下的images文件夹下
+    .pipe(gulp.dest('../../lib/theme/img')) //输入到build文件夹下的images文件夹下
 })
-gulp.task('clean:lib', function (cb) {
-  return gulp.src('../../theme/*', {read: false})
-  .pipe(clean({force: true}))
+gulp.task('clean:theme', function (cb) {
+  return gulp.src('../../lib/theme/*', { read: false })
+    .pipe(clean({ force: true }))
 });
-gulp.task('iconfont', function () {
+gulp.task('create', ['clean:theme'], function (cb) {
+  dirs.forEach(dir => {
+    mkdirp.sync(dir);
+  })
+  return gulp.src('../../lib/theme/*')
+       .pipe(gulp.dest('.'))
+})
+gulp.task('iconfont', ['create'], function () {
   return gulp.src('./src/assets/iconfont/**')
     .pipe(plumber())
     .pipe(cssmin())
-    .pipe(gulp.dest('../../theme/iconfont'));
+    .pipe(gulp.dest('../../lib/theme/iconfont/'));
 });
 
-gulp.task('sass:watch', function () {
+gulp.task('sass:watch', ['sass', 'img', 'iconfont'], function () {
   gulp.watch('./src/scss/**/*.scss', ['sass', 'img', 'iconfont']);
 });
 
-gulp.task('default', ['clean:lib', 'sass', 'img', 'iconfont', 'sass:watch']);
+gulp.task('default', ['clean:theme', 'create', 'sass', 'img', 'iconfont', 'sass:watch']);
 
-gulp.task('build', ['clean:lib', 'sass', 'img', 'iconfont']);
+gulp.task('build', ['clean:theme', 'create', 'sass', 'img', 'iconfont']);

@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-12 15:24:15 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-14 10:09:55
+ * @Last Modified time: 2018-06-22 09:08:40
  */
 
 /**
@@ -14,8 +14,7 @@ const tasks = [
   'lint',
   'build:components',
   'build:theme',
-  'build:recharger',
-  'dev'
+  'build:recharger'
 ];
 
 tasks.forEach(task => {

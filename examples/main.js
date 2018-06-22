@@ -9,6 +9,7 @@ import routers from './router'
 // import RLEM from 'recharger'
 //
 // Vue.use(RLEM)
+
 const router = new VueRouter({
   mode: 'hash',
   base: '/',
