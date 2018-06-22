@@ -6,7 +6,7 @@ import App from './WapApp'
 import VueRouter from 'vue-router'
 import routers from './router'
 import RLEM from '../lib'
-import '../lib/theme/index.css'
+import '../theme/index.css'
 // import RLEM from 'recharger'
 // const base=
 

@@ -24,7 +24,7 @@ var replace = require('gulp-replace');
 var clean = require('gulp-clean');
 
 
-var themedir = '../../lib/theme/', imgdir = '../../lib/theme/img/', iconfontdir = '../../lib/theme/iconfont/'
+var themedir = '../../theme/', imgdir = '../../theme/img/', iconfontdir = '../../theme/iconfont/'
 var dirs = [themedir, imgdir, iconfontdir]
 
 
@@ -35,7 +35,7 @@ var processors = [
   postcsswritesvg({ utf8: false }),
   postcsscssnext(),
   pxtoviewport({
-    viewportWidth: 750, //注意：按照100vw=375px 转化
+    viewportWidth: 375, //注意：按照100vw=375px 转化
     viewportHeight: 1334,
     unitPrecision: 5,
     viewportUnit: 'vw',
@@ -58,7 +58,7 @@ gulp.task('sass', ['create'], function () {
     .pipe(postcss(processors))
     .pipe(concat({ ext: '.css' }))
     .pipe(replace('assets/', ''))
-    .pipe(gulp.dest('../../lib/theme/'))
+    .pipe(gulp.dest('../../theme/'))
 });
 
 gulp.task('img', ['create'], function () {
@@ -70,24 +70,24 @@ gulp.task('img', ['create'], function () {
       interlced: true, //Boolean类型 默认false 隔行扫描gif进行渲染
       multipass: true //Boolean类型 默认false 多次优化svg直到完全优化
     }))
-    .pipe(gulp.dest('../../lib/theme/img')) //输入到build文件夹下的images文件夹下
+    .pipe(gulp.dest('../../theme/img')) //输入到build文件夹下的images文件夹下
 })
 gulp.task('clean:theme', function (cb) {
-  return gulp.src('../../lib/theme/*', { read: false })
+  return gulp.src('../../theme/*', { read: false })
     .pipe(clean({ force: true }))
 });
 gulp.task('create', ['clean:theme'], function (cb) {
   dirs.forEach(dir => {
     mkdirp.sync(dir);
   })
-  return gulp.src('../../lib/theme/*')
+  return gulp.src('../../theme/*')
        .pipe(gulp.dest('.'))
 })
 gulp.task('iconfont', ['create'], function () {
   return gulp.src('./src/assets/iconfont/**')
     .pipe(plumber())
     .pipe(cssmin())
-    .pipe(gulp.dest('../../lib/theme/iconfont/'));
+    .pipe(gulp.dest('../../theme/iconfont/'));
 });
 
 gulp.task('sass:watch', ['sass', 'img', 'iconfont'], function () {

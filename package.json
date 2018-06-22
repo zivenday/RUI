@@ -1,6 +1,6 @@
 {
   "name": "recharger",
-  "version": "1.6.6",
+  "version": "1.6.7",
   "description": " A component library based on the vue2",
   "author": "钟伟 <liandaydayux@gmail.com>",
   "main": "lib/index.js",
@@ -13,9 +13,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/githubziven/recharger.git"
+    "url": "https://github.com/githubziven/RUI.git"
   },
-  "bugs": "https://github.com/githubziven/recharger/issues",
+  "bugs": "https://github.com/githubziven/RUI/issues",
   "private": false,
   "scripts": {
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
