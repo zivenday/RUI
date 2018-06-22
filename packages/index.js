@@ -2,30 +2,28 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 15:38:26
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-22 12:23:56
+ * @Last Modified time: 2018-06-22 15:33:33
  */
-
-
-import RButton from '../packages/button/index.js'
-import RLead from '../packages/lead/index.js'
-import RCashBulk from '../packages/cash-bulk/index.js'
-import RCashBulkGroup from '../packages/cash-bulk-group/index.js'
-import RTable from '../packages/table/index.js'
-import RInput from '../packages/input/index.js'
-import RForm from '../packages/form/index.js'
-import RFormItem from '../packages/form-item/index.js'
-import MessageBox from '../packages/message/index.js'
-import RButtonGroup from '../packages/button-group/index.js'
-import RTag from '../packages/tag/index.js'
-import RDialog from '../packages/dialog/index.js'
-import RAutoComplete from '../packages/auto-complete/index.js'
-import RIcon from '../packages/icon/index.js'
-import RTabs from '../packages/tabs/index.js'
-import RTabPane from '../packages/tab-pane/index.js'
-import RRadio from '../packages/radio/index.js'
-import RCheckbox from '../packages/checkbox/index.js'
-import RCheckboxButton from '../packages/checkbox-button/index.js'
-import RCheckboxGroup from '../packages/checkbox-group/index.js'
+import RButton from './button/index.js'
+import RLead from './lead/index.js'
+import RCashBulk from './cash-bulk/index.js'
+import RCashBulkGroup from './cash-bulk-group/index.js'
+import RTable from './table/index.js'
+import RInput from './input/index.js'
+import RForm from './form/index.js'
+import RFormItem from './form-item/index.js'
+import MessageBox from './message/index.js'
+import RButtonGroup from './button-group/index.js'
+import RTag from './tag/index.js'
+import RDialog from './dialog/index.js'
+import RAutoComplete from './auto-complete/index.js'
+import RIcon from './icon/index.js'
+import RTabs from './tabs/index.js'
+import RTabPane from './tab-pane/index.js'
+import RRadio from './radio/index.js'
+import RCheckbox from './checkbox/index.js'
+import RCheckboxButton from './checkbox-button/index.js'
+import RCheckboxGroup from './checkbox-group/index.js'
 
 const components = [
   RButton,

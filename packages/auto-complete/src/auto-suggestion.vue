@@ -9,7 +9,7 @@
   </transition>
 </template>
 <script>
-import Emitter from '../../../src/utils/mixin/emitter'
+import Emitter from '../../utils/mixin/emitter'
 export default {
   name: 'RAutoSuggestion',
   componentName: 'RAutoSuggestion',

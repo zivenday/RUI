@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-12 15:23:48 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-12 17:38:46
+ * @Last Modified time: 2018-06-22 15:34:38
  */
 
 /**
@@ -13,7 +13,6 @@ const path = require('path');
 const compiler = require('vue-sfc-compiler');
 const libDir = path.resolve(__dirname, '../lib');
 const packagesDir = path.resolve(__dirname, '../packages');
-const srcDir = path.resolve(__dirname, '../src');
 
 const babel = require('babel-core');
 const compilerOption = {
@@ -33,7 +32,6 @@ fs.existsSync(libDir, function (exists) {
 
 // copy packages and src
 fs.copySync(packagesDir, libDir);
-fs.copySync(srcDir, libDir);
 
 // 编译所有 .vue 文件到 .js
 compile(libDir);
@@ -44,7 +42,7 @@ function compile (dir) {
   files.forEach(file => {
     const absolutePath = path.resolve(dir, file);
 
-    // 移除 vant-css
+    // 移除 theme-default
     if (file.indexOf('theme-default') !== -1) {
       fs.removeSync(absolutePath);
       // 遍历文件夹

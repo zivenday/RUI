@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Emitter from 'recharger/src/utils/mixin/emitter'
+import Emitter from '../../utils/mixin/emitter'
 
 export default {
   name: 'RCashBulk',

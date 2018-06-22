@@ -13,9 +13,9 @@
 
 <script>
 import Schema from 'async-validator'
-import emitter from 'recharger/src/utils/mixin/emitter.js'
-import objectAssign from 'recharger/src/utils/merge'
-import { noop, getPropByPath } from 'recharger/src/utils/util'
+import emitter from '../../utils/mixin/emitter.js'
+import objectAssign from '../../utils/merge'
+import { noop, getPropByPath } from '../../utils/util'
 
 export default {
   name: 'RFormItem',

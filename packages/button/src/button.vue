@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import StyleFun from 'recharger/src/utils/mixin/style.js'
+import StyleFun from '../../utils/mixin/style.js'
 export default {
   name: 'RButton',
   mixins: [StyleFun],

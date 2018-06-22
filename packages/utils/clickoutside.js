@@ -1,12 +1,12 @@
 /*
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 16:15:35
- * @Last Modified by:   zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-12 16:15:35
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-06-22 15:38:46
  */
 
 import Vue from 'vue'
-import { on } from 'recharger/src/utils/dom'
+import { on } from './dom'
 
 const nodeList = []
 const ctx = '@@clickoutsideContext'

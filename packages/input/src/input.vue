@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import StyleFun from 'recharger/src/utils/mixin/style'
-import emitter from 'recharger/src/utils/mixin/emitter'
+import StyleFun from '../../utils/mixin/style'
+import emitter from '../../utils/mixin/emitter'
 export default {
   name: 'RInput',
   props: {

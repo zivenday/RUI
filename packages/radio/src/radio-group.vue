@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import Emitter from 'recharger/src/utils/mixin/emitter';
+import Emitter from '../../utils/mixin/emitter';
 
 const keyCode = Object.freeze({
   LEFT: 37,

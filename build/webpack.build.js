@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-12 15:01:31 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-12 17:03:23
+ * @Last Modified time: 2018-06-22 15:35:16
  */
 const path = require('path');
 const config = require('./webpack.build.conf');
@@ -12,7 +12,7 @@ delete config.serve;
 module.exports = Object.assign(config, {
   mode: 'production',
   entry: {
-    'recharger': './src/index.js'
+    'recharger': './packages/index.js'
   },
   output: {
     path: path.join(__dirname, '../lib'),

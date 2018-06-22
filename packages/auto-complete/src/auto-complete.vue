@@ -18,10 +18,10 @@
 </template>
 <script>
 import debounce from 'throttle-debounce/debounce'
-import StyleFun from 'recharger/src/utils/mixin/style.js'
+import StyleFun from '../../utils/mixin/style.js'
 import RAutoSuggestion from './auto-suggestion.vue'
-import Emitter from '../../../src/utils/mixin/emitter'
-import Clickoutside from 'recharger/src/utils/clickoutside'
+import Emitter from '../../utils/mixin/emitter'
+import Clickoutside from '../../utils/clickoutside'
 export default {
   name: 'RAutoComplete',
   componentName: 'RAutoComplete',
