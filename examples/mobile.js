@@ -5,28 +5,31 @@ import Vue from 'vue'
 import App from './WapApp'
 import VueRouter from 'vue-router'
 import routers from './router'
-import RLEM from '../lib'
-import '../theme/index.css'
+import RLEM from '../packages'
+import '../packages/theme-default/src/scss/index.scss'
+// import '../theme/index.css'
+
 // import RLEM from 'recharger'
 // const base=
 
 Vue.use(RLEM)
 const router = new VueRouter({
   mode: 'hash',
-  base: (process.env.BUILD_ENV==='prod'?'/RUI/dist':'')+'/examples.html',
+  base: (process.env.BUILD_ENV === 'prod' ? '/RUI/dist' : '') + '/examples.html',
   // base: '/examples.html',
   routes: routers(true)
 })
+
+window.vueRouter = router
 router.beforeEach((to, from, next) => {
   next()
 })
-router.afterEach((to,from,next)=>{
-  window.top.vueRouter.replace({path:to.path})
+router.afterEach((to, from, next) => {
+  window.top.vueRouter.replace({ path: to.path })
 })
-window.vueRouter = router
 Vue.config.productionTip = false
 // router.afterEach((to, from) => {
-  
+
 // })
 // console.log(routers(true))
 /* eslint-disable no-new */

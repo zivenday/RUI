@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-04 14:45:44 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-04 14:57:42
+ * @Last Modified time: 2018-07-13 15:42:32
  */
 
 /* eslint-disable no-undef,semi,no-unused-vars,prefer-const,comma-dangle,import/newline-after-import,max-len,indent,arrow-body-style,object-shorthand,no-multi-spaces,no-param-reassign,dot-notation,comma-spacing,no-unused-expressions,keyword-spacing,space-in-parens,no-empty,key-spacing,consistent-return,no-else-return,padded-blocks,object-curly-spacing,no-lonely-if */
@@ -23,9 +23,11 @@ let initInstance = (options) => {
     document.body.appendChild(instance.$el);
   }
   document.body.classList.add('hidden-overflow')
+
   Vue.nextTick(() => {
     instance.showBox = true;
     instance.options = merge(instance.options, options)
+    console.log(instance.options)
   });
 }
 const MessageBox = (options, callback) => {
@@ -48,11 +50,11 @@ MessageBox.alert = (options) => {
     }
   }
 
-  setTimeout(() => {
-    !!instance ? Vue.nextTick(() => {
-      instance.showBox = false
-    }) : ''
-  }, 1500)
+  // setTimeout(() => {
+  //   !!instance ? Vue.nextTick(() => {
+  //     instance.showBox = false
+  //   }) : ''
+  // }, 1500)
 
   return MessageBox(merge({
     title: options.title,
@@ -60,7 +62,7 @@ MessageBox.alert = (options) => {
     $type: 'alert',
     iconShow: true,
     iconClass: 'cuowu',
-    closeOnPressEscape: true,
+    closeOnPressEscape: false,
     closeOnClickModal: false
   }, options))
 }
@@ -77,7 +79,7 @@ MessageBox.loading = (options) => {
         message: options
       }
     }
-    if(options.delay){// 设置关闭时间
+    if (options.delay) {// 设置关闭时间
       setTimeout(() => {
         !!instance ? Vue.nextTick(() => {
           instance.showBox = false
@@ -101,6 +103,35 @@ MessageBox.loading = (options) => {
     }
   }
 
+}
+MessageBox.confirm = (options) => {
+  return MessageBox(merge({
+    title: options.title,
+    message: options.message,
+    $type: 'confirm',
+    iconShow: false,
+    iconClass: 'cuowu',
+    closeOnPressEscape: false,// 点击弹框外围消失
+    closeOnClickModal: false,
+    hasModal: true,
+    cancel: options.cancel,
+    ensure: options.ensure
+  }, options))
+}
+
+MessageBox.frame = (options) => {
+  return MessageBox(merge({
+    title: options.title,
+    message: options.message,
+    $type: 'frame',
+    iconShow: false,
+    iconClass: 'cuowu',
+    closeOnPressEscape: false,// 点击弹框外围消失
+    closeOnClickModal: false,
+    hasModal: true,
+    cancel: options.cancel,
+    ensure: options.ensure
+  }, options))
 }
 export default MessageBox;
 export { MessageBox };

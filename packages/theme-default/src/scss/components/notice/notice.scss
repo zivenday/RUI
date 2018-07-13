@@ -1,0 +1,71 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-28 17:44:41 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-06-30 20:05:26
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(notice) {
+  position: fixed;
+  width: 100%;
+  height: $--notice-height;
+  background-color: $--notice-fill;
+  top: 0;
+  z-index: 1000;
+  font-size: $--notice-font-size;
+  box-sizing: border-box;
+  padding: 9px 10.5px 9px 12px;
+  color: $--notice-font-color;
+  @include e(text) {
+    // position: absolute;
+    display: inline-block;
+    width: $--notice-width-text;
+    height: 100%;
+    li {
+      position: absolute;
+      width: $--notice-width-text;
+      overflow: hidden;
+      span {
+        @include when(scroll) {
+          position: relative;
+          display: inline-block;
+          animation: notice-play linear both;
+          @include m(infinite) {
+            position: relative;
+            display: inline-block;
+            animation: notice-play-infinite linear infinite both;
+          }
+        } // @include when('scroll--infinite') {
+        //   position: relative;
+        //   display: inline-block;
+        // }
+      }
+    }
+  }
+  @include e(close) {
+    float: right;
+    color: #CFC5A4;
+    .iconfont {
+      font-size: $--notice-font-size;
+    }
+  }
+  @keyframes notice-play {
+    from {
+      transform: translate3d(0, 0, 0)
+    }
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  @keyframes notice-play-infinite {
+    0% {
+      transform: translate3d(0, 0, 0)
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+}

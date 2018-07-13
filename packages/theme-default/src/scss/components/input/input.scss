@@ -28,6 +28,9 @@
         outline: none;
         border-color: $--input-focus-border;
       }
+      @include when(disabled){
+        
+      }
     }
 
   }

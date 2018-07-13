@@ -47,7 +47,7 @@
     <!--</div>-->
 
     <!--</r-fade-in-transition>-->
-    <r-input v-model="value1">
+    <r-input v-model="value1" disabled>
       <i slot="suffix" class="iconfont r-icon-error"></i>
     </r-input>
     <!-- <input v-model="value1"> -->
@@ -143,7 +143,11 @@ export default {
   },
   methods: {
     CallClick () {
-      this.$loading({ message: '123131', delay: 2000 })
+      this.$alert({
+        message: 'sdfsdf',
+        iconShow: false,
+        closeOnPressEscape: true
+      })
     },
     handleClose () {
       this.isShow = false

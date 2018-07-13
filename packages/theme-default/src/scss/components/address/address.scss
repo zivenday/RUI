@@ -1,0 +1,87 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-30 20:38:40 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-13 12:30:53
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(address) {
+  width: $--address-width;
+  min-height: $--address-height;
+  background: $--address-fill;
+  padding-left: $--address-padding-left;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+  margin-bottom: 10px;
+  @include e(inner) {
+    min-height: $--address-inner-height;
+    border-bottom: $--address-inner-border;
+    padding: 7px 0;
+    box-sizing: border-box;
+    &>span {
+      float: left;
+      margin-top: -3px;
+      .iconfont {
+        color: $--color-grey-light;
+        @include when(checked) {
+          color: $--color-primary;
+        }
+      }
+      input {
+        margin-top: 25px;
+        margin-left: -17px;
+        opacity: 0;
+      }
+    }
+    &__info {
+      width: 335px;
+      &>div {
+        width: 335px;
+        padding: 6px 20px 6px 33px;
+        margin-left: -6px;
+        font-size: 13px;
+        color: $--address-color;
+        box-sizing: border-box;
+        span {
+          font-size: 16px;
+          padding-right: 20px;
+        }
+      }
+    }
+    .clear {
+      clear: both;
+    }
+  }
+  @include e(bottom) {
+    // height: $--address-bottom-height;
+    padding: 10px 0;
+    box-sizing: border-box;
+    .clear {
+      clear: both;
+    }
+  }
+  @include e(btn) {
+    float: right;
+    font-size: 13px;
+    color: #666;
+    padding: 0 10px;
+    span,.iconfont{
+      vertical-align: top;
+      display: inline-block;
+      padding-left: 2px;
+    }
+    .iconfont {
+      color: #888
+    }
+    .r-icon-bianji {
+      font-size: 15px;
+      margin-top: -1px;
+    }
+    .r-icon-shanchu {
+      font-size: 13px
+    }
+  }
+}

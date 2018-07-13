@@ -1,0 +1,46 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-27 14:37:54 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-07 20:35:57
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(pay-bottombar) {
+  display: table;
+  width: $--pay-bottombar-width;
+  height: $--pay-bottombar-height;
+  background-color: $--pay-bottombar-fill;
+  vertical-align: middle;
+  border:1px solid #ddd;
+  @include e(text) {
+    width: $--pay-bottombar-text-width;
+    // height: 50px;
+    line-height: 49px;
+    font-family: PingFangSC-Regular;
+    float: left;
+    text-align: right; // margin-right: 12px;
+    font-size: $--pay-bottombar-text-font;
+    vertical-align: middle;
+    box-sizing: border-box;
+    padding-right: 12px;
+    &>span:last-child{
+      color:$--color-primary
+    }
+  }
+  @include e(btn) {
+    width: $--pay-bottombar-btn-width;
+    font-family: PingFangSC-Regular;
+    float: right;
+    text-align: center;
+    font-size: $--pay-bottombar-btn-font;
+    color: #fff;
+    line-height: 50px;
+    background-image: linear-gradient(-90deg, #FD6B00 0%, #FF9D21 100%);
+    a, a:visited{
+      color:$--color-white
+    }
+  }
+}

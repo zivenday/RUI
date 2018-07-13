@@ -11,10 +11,10 @@
 const shell = require('shelljs');
 const signale = require('signale');
 const tasks = [
-  'lint',
-  'build:components',
-  'build:theme',
-  'build:recharger'
+  'lint',//
+  'build:components',//babel编译成与node书写相同的模式
+  'build:theme',// 编译默认样式
+  'build:recharger'//编译Recharger.js ,recharger.min.js
 ];
 
 tasks.forEach(task => {

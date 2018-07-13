@@ -1,3 +1,9 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-28 17:41:03 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-02 15:57:49
+ */
 /* eslint-disable */
 module.exports = {
   'zh-CN': {
@@ -73,6 +79,22 @@ module.exports = {
               {
                 path: '/inputs',
                 title: 'Input - 输入框'
+              },
+              {
+                path: '/page-navbar',
+                title: 'PageNavbar - 页面切换导航栏'
+              }, {
+                path: '/notice',
+                title: 'Notice - 通知顶栏'
+              }, {
+                path: '/bottom-pop',
+                title: '底部弹框'
+              },{
+                path:'/message',
+                title:'提示，对话框'
+              },{
+                path:'/region-choose',
+                titel:'区域三级底部弹框'
               }
             ]
           },
@@ -82,15 +104,46 @@ module.exports = {
               {
                 path: '/dialog',
                 title: 'Dialog - 对话框'
+              },
+              {
+                path: '/lazyload',
+                title: 'Lazyload - 缓加载图片'
+              }, {
+                path: '/carousel',
+                title: 'Carousel - 轮播图'
               }
             ]
           },
+          // {
+          //   groupName:'特殊组件',
+          //   list:[
+
+          //   ]
+          // },
           {
             groupName: '业务组件',
             list: [
               {
                 path: '/购物选择框',
                 title: 'Buy - 购物选择框'
+              }, {
+                path: '/pay-bottombar',
+                title: 'PayBottombar - 支付底栏'
+              }, {
+                path: '/count-bar',
+                title: 'CountBar - 商品计数栏'
+              }, {
+                path: '/address',
+                title: 'AddressRadio-地址选择列表'
+              }, {
+                path: '/simple-sku',
+                title: 'SimpleSku - 商品套餐确定'
+              }, {
+                path: '/product',
+                title: 'product - 商品展示页'
+              }, {
+                path: '/sku-card',
+                title: 'SkuCard - 商品套餐卡片'
               }
             ]
           }

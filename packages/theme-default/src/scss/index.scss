@@ -1,3 +1,9 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-28 17:47:47 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-10 18:20:35
+ */
 @import "base/normalize.scss";
 @import "base/base.scss";
 @import "components/button/button.scss";
@@ -17,5 +23,18 @@
 @import "components/checkbox/checkbox.scss";
 @import "components/dialog/dialog.scss";
 @import "components/auto-complete/auto-complete.scss";
-@import "components/auto-complete/auto-suggestion.scss"
-
+@import "components/auto-complete/auto-suggestion.scss";
+// @import "components/picture/picture.scss"
+@import "components/carousel/carousel.scss";
+@import "components/carousel-item/carousel-item.scss";
+@import "components/page-navbar/page-navbar.scss";
+@import "components/pay-bottombar/pay-bottombar.scss";
+@import "components/count-bar/count-bar.scss";
+@import "components/notice/notice.scss";
+@import "components/address/address.scss";
+@import "components/bottom-pop/bottom-pop.scss";
+@import "components/simple-sku/simple-sku.scss";
+@import "components/region-choose/region-choose.scss";
+@import "components/product/product.scss";
+@import "components/sku-card/sku-card.scss";
+@import "components/modal/modal.scss";

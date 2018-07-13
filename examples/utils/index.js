@@ -1,8 +1,7 @@
 function iframeReady (iframe, callback) {
   const doc = iframe.contentDocument || iframe.contentWindow.document
-  
+
   const interval = () => {
-    console.log('3333',iframe.contentWindow,iframe)
     if (iframe.contentWindow.changePath) {
       callback()
     } else {
@@ -11,7 +10,6 @@ function iframeReady (iframe, callback) {
       }, 50)
     }
   }
-  console.log(',,,,,,', doc.readyState)
   if (doc.readyState === 'complete') {
     interval()
   } else {
@@ -21,8 +19,9 @@ function iframeReady (iframe, callback) {
 
 const ua = navigator.userAgent.toLowerCase()
 const isMobile = /ios|iphone|ipod|ipad|android/.test(ua)
-
+const isInframe = window !== window.top
 export {
   isMobile,
-  iframeReady
+  iframeReady,
+  isInframe
 }

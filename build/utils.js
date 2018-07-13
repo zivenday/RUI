@@ -48,6 +48,7 @@ exports.cssLoaders = function (options) {
       return ExtractTextPlugin.extract({
         use: loaders,
         publicPath: process.env.BUILD_ENV === 'prod' ? '../' : '../../',
+        // publicPath:'../',
         fallback: 'vue-style-loader'
       })
     } else {

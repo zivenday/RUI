@@ -1,0 +1,51 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-28 10:09:57 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-09 18:03:23
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(count-bar) {
+  width: $--count-bar-width+2px;
+  height: $--count-bar-height;
+  background: $--count-bar-fill;
+  border-radius: $--count-bar-border-radius;
+  input,
+  button {
+    border: 0;
+    padding: 0;
+    float: left;
+    height: 30px;
+    background: transparent;
+    font-size: 14px;
+    text-align: center;
+    @include when(disabled) {
+      color: #d8d8d8;
+    }
+  }
+  input {
+    width: 36px;
+    color: #333; // border:1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-radius: 0;
+  }
+  button {
+    width: 32px;
+    color: #999;
+    .iconfont {
+      font-size: 14px;
+    }
+  }
+  @include e(mins) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  @include e(plus) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

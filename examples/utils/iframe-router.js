@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-05 10:31:01 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-20 07:18:08
+ * @Last Modified time: 2018-06-26 11:29:17
  */
 
 /* eslint-disable padded-blocks */
@@ -27,17 +27,16 @@ window.syncPath = function (dir) {
     const iframe = document.querySelector('iframe')
     if (iframe) {
       iframeReady(iframe, () => {
-        console.log('11111',iframe,iframe.contentWindow)
         iframe.contentWindow.changePath(lang, currentDir)
       })
     }
     // setLang(lang)
   } else if (isInIframe) {
-    console.log('222',window,window.top,iframe,iframe.contentWindow)
     window.top.changePath(lang, currentDir)
   }
 }
 
 window.changePath = function (lang, path = '') {
+  console.log('????',window!==window.top,window.vueRouter)
   window.vueRouter.replace(path)
 }

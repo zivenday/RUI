@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 15:38:26
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-22 15:33:33
+ * @Last Modified time: 2018-07-05 10:14:32
  */
 import RButton from './button/index.js'
 import RLead from './lead/index.js'
@@ -24,6 +24,20 @@ import RRadio from './radio/index.js'
 import RCheckbox from './checkbox/index.js'
 import RCheckboxButton from './checkbox-button/index.js'
 import RCheckboxGroup from './checkbox-group/index.js'
+import RLazyload from './lazyload/index.js'
+import RCarousel from './carousel/index.js'
+import RCarouselItem from './carousel-item/index.js'
+import RPageNavbar from './page-navbar/index.js'
+import RPayBottombar from './pay-bottombar/index.js'
+import RCountBar from './count-bar/index.js'
+import NoticeBox from './notice/index.js'
+import RAddressGrounp from './address-group/index.js'
+import RAddress from './address/index.js'
+import RBottomPop from './bottom-pop/index.js'
+import RSimpleSku from './simple-sku/index.js'
+import RRegionChoose from './region-choose/index.js'
+import RProduct from './product/index.js'
+import RSkuCard from './sku-card/index.js'
 
 const components = [
   RButton,
@@ -44,7 +58,19 @@ const components = [
   RCheckbox,
   RCheckboxButton,
   RCheckboxGroup,
-  RRadio
+  RRadio,
+  RCarousel,
+  RCarouselItem,
+  RPageNavbar,
+  RPayBottombar,
+  RCountBar,
+  RAddress,
+  RAddressGrounp,
+  RBottomPop,
+  RSimpleSku,
+  RRegionChoose,
+  RProduct,
+  RSkuCard
   // RCollapseTransition
 ]
 
@@ -57,7 +83,9 @@ const install = function (Vue, opts = {}) {
     Vue.component(component.name, component)
   })
   Vue.prototype.$alert = MessageBox.alert
+  Vue.prototype.$confirm = MessageBox.confirm
   Vue.prototype.$loading = MessageBox.loading
+  Vue.prototype.$notice = NoticeBox.notice
 }
 
 /* istanbul ignore if */
@@ -84,7 +112,21 @@ export {
   RCheckbox,
   RCheckboxButton,
   RCheckboxGroup,
-  MessageBox
+  RLazyload,
+  RCarousel,
+  RCarouselItem,
+  MessageBox,
+  RPageNavbar,
+  RPayBottombar,
+  RCountBar,
+  NoticeBox,
+  RAddress,
+  RAddressGrounp,
+  RBottomPop,
+  RSimpleSku,
+  RRegionChoose,
+  RProduct,
+  RSkuCard
 }
 
 export default {

@@ -1,0 +1,16 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-26 12:10:36 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-03 17:03:24
+ */
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(carousel-item) {
+  float: left;
+  img{
+    width: 100%!important;
+    height: 100%!important;
+  }
+}

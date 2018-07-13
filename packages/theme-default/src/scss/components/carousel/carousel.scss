@@ -1,0 +1,37 @@
+/*
+ * @Author: zhongw@corp.21cn.com 
+ * @Date: 2018-06-26 12:02:26 
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-13 09:40:22
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(carousel) {
+  position: relative;
+  // width: 100%;
+  overflow: hidden;
+  @include e(items) {
+    -webkit-overflow-scrolling: touch
+  }
+  @include e(dots) {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+    &>span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border: $--carousel-dot-border;
+      background-color: $--color-white;
+      border-radius: 100%;
+      margin:0 5px;
+      @include when(active) {
+        background-color: $--color-grey-light;
+        border: 1px solid transparent ;
+      }
+    }
+  }
+}

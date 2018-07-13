@@ -1,5 +1,7 @@
 <template>
-  <i class="iconfont" :class="'r-icon-'+name"></i>
+  <i class="iconfont" :class="'r-icon-'+name" style="display: inline-block">
+    <slot/>
+  </i>
 </template>
 
 <script>

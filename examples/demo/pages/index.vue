@@ -5,9 +5,9 @@
     </div>
     <div class="r-demo--nav">
       <div v-for="(item,index) in docConfig['zh-CN']['nav'][1].groups" :key="index">
-        <div @click="show[index]=!show[index]">
+        <a @click="show[index]=!show[index]">
           {{item.groupName}}
-        </div>
+        </a>
         <ul v-show="show[index]">
           <router-link v-for="(elem,index) in item.list" :to="base+elem.path" :key="index">
             <li>{{elem.title}}</li>
@@ -53,10 +53,12 @@ export default {
   &--nav {
     width: 100%;
     text-align: center;
-    & > div > div {
+    & > div >a {
       display: block;
       width: 300px;
+      height: 30px;
       line-height: 2;
+      font-size: 15px;
       margin: 10px auto;
       cursor: pointer;
       background-color: #fb8800;

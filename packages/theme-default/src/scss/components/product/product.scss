@@ -1,0 +1,120 @@
+/*
+ * @Description: product
+ * @author: zhongw@corp.21cn.com
+ * @Date: 2018-07-05 11:39:21
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-13 09:56:55
+ */
+
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(product) {
+  background-color: $--product-fill;
+  width: 100vw;
+  // height: 100%;
+  // max-height: 100%;
+  // overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  @include e(show) {
+    margin-bottom: $--product-marign-bottom
+  }
+  @include e(info) {
+    height: 72px;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    padding: 10px 0 12px 12px;
+    box-sizing: border-box;
+    background-color: $--color-white;
+    margin-bottom: $--product-marign-bottom;
+    &>div:first-child {
+      color: #333;
+      letter-spacing: 1.5px;
+      margin-bottom: 7px;
+    }
+    &>div:last-child {
+      color: $--color-primary;
+      letter-spacing: 0;
+      &>span:last-child {
+        display: inline-block;
+        font-size: 24px;
+      }
+    }
+  }
+  @include e(tag) {
+    height: 80px;
+    padding-left: 12px;
+    box-sizing: border-box;
+    background-color: $--color-white;
+    margin-bottom: $--product-marign-bottom;
+    &>div {
+      font-family: PingFangSC-Regular;
+      color: #555;
+      padding: 12px 0;
+      box-sizing: border-box;
+      font-size: 14px;
+      .iconfont {
+        font-size: 14px;
+        &::before {
+          color: $--color-primary;
+        }
+      }
+      span {
+        padding-right: 20px;
+        padding-left:5px;
+      }
+    }
+    &>div:first-child {
+      border-bottom: 1px solid #ECECEC;
+    }
+  }
+  @include e(navbar) {
+    padding-left: 12px;
+    background-color: $--color-white;
+    &>div:first-child {
+      border-bottom: 1px solid #ECECEC;
+    }
+    .iconfont {
+      font-size: 14px;
+    }
+    span {
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #555555;
+      letter-spacing: 0;
+      margin-left: -12px
+    }
+  }
+  @include e(detail) {
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    &>div:first-child {
+      height: 49px;
+      text-align: center;
+      width: 100%;
+      padding: 20px;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #999;
+      box-sizing: border-box;
+      &>span:first-child,
+      &>span:last-child {
+        // display: inline-block;
+        width: 100px;
+        height: 1px;
+        border-bottom: 1px solid #ddd;
+        vertical-align: middle;
+        margin: 0 3px 3px 3px;
+        display: inline-block;
+      }
+    }
+    &>div:last-child {
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+}

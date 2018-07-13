@@ -3,11 +3,12 @@
     !!$slots.prefix ? 'r-input--' + 'prefix' : '',
     !!$slots.suffix ? 'r-input--' + 'suffix' : '',
     inputSize ? 'r-input--' + inputSize : '',
-    type ? 'r-input--'+ type : ''
+    type ? 'r-input--'+ type : '',
+    disabled ? 'is-'+ disabled : ''
     ]" :style="[{ width:pxToview(width), height:pxToview(height),lineHeight:pxToview(height)},pxToview(styles)]">
     <div class="r-input__inner">
       <slot name="prefix" v-if="$slots.prefix"></slot>
-      <input v-bind="$props" :type="inputType" :placeholder="!!placeholder?placeholder:''" :value="currentValue" ref="input" @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur">
+      <input v-bind="$props" :disabled="disabled" :type="inputType" :placeholder="!!placeholder?placeholder:''" :value="currentValue" ref="input" @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur">
       <slot name="suffix" v-if="$slots.suffix"></slot>
     </div>
   </div>
@@ -26,6 +27,10 @@ export default {
     height: [String, Number],
     styles: Object,
     type: String,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     inputType: {
       type: String,
       default: 'text'

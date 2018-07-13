@@ -3,6 +3,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+// var livereload=require('gulp-livereload')
 var cssmin = require('gulp-cssmin');
 var plumber = require('gulp-plumber');//异常处理，防止出现异常时，退出watch
 var postcss = require('gulp-postcss'); //JavaScript 代码来转换CSS 中的样式
@@ -57,7 +58,7 @@ gulp.task('sass', ['create'], function () {
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(postcss(processors))
     .pipe(concat({ ext: '.css' }))
-    .pipe(replace('assets/', ''))
+    .pipe(replace('url(../assets/', 'url(./'))
     .pipe(gulp.dest('../../theme/'))
 });
 
