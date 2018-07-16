@@ -1,3 +1,10 @@
+/*
+ * @Description: undefined
+ * @author: zhongw@corp.21cn.com
+ * @Date: 2018-07-16 17:05:49
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-16 17:05:49
+ */
 <template>
   <div class="r-carousel" :style="[{width:pxToview(width),height:pxToview(height)}]">
     <div ref="items" class="r-carousel__items" :style="pxToview(styles)" @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd" @touchcancel="onTouchEnd">
@@ -50,8 +57,10 @@ export default {
       wh: 0,
       isTouch: false,
       speed: 0,
-      isRecovey: false,
-      recoverDuration: 0
+      end: false,
+      recoverDuration: 0,
+      moving: false,
+      end: false
     }
   },
   provide () {
@@ -83,36 +92,55 @@ export default {
   },
   methods: {
     getTouchDuration () {
-      if (!this.isRecovey) {
+      // 如果是正在滑动，说明手指正在滑到，则不要有延迟
+      if (this.moving) {
         return 0
+      // 如果滑动已经结束，这设置滑动时间，图片按照移动的速度滑到对应位置
       } else {
         return 200
       }
     },
     onTouchStart (ev) {
       ev.stopPropagation()
+      // ev.stopImmediatePropagation()
+      ev.preventDefault()// 阻止默认动作，滚动条
+      // document.body.classList.add('no-touch-action')
       this.isTouch = true
+      this.moving = false
       clearInterval(this.interval)
       this.touchStart(ev)
+      console.log('start:', ev)
     },
     onTouchMove (ev) {
-      ev.stopPropagation()
+      ev.preventDefault()
+      this.moving = true
       this.touchMove(ev)
-      this.offsetX < this.wh ? this.transform() : undefined
+      if (this.offsetX < this.wh) {
+        this.transform()
+      } else {
+
+      }
     },
     onTouchEnd (ev) {
-      ev.stopPropagation()
+      ev.preventDefault()
+      this.touchEnd(ev)
       const num = this.count - 1
-      this.isRecovey = true
-      if (this.offsetX >= this.wh / 2) {
+      this.end = true
+      this.moving = false
+      // 当滑动距离超过轮播图宽度一半时，或者手指快速滑动时，滑动图片
+      if (this.offsetX >= this.wh / 2 || this.offsetT < 300) {
+        // 如果方向是左滑动，并且当前不是第一张图，则滑动图片，index自减
         if (this.deltaX > 0 && this.currentIndex !== 0) {
           this.offset = -(this.wh * --this.currentIndex)
+          // 如果方向是右滑动，并且当前不是最后一张图，则滑动图片，index自增
         } else if (this.deltaX < 0 && this.currentIndex !== num) {
           this.offset = -(this.wh * ++this.currentIndex)
         } else {
+          // 其他则回到当前index的位置
           this.offset = -(this.wh * this.currentIndex)
         }
       } else {
+        // 其他则回到当前index的位置
         this.offset = -(this.wh * this.currentIndex)
       }
       this.autoplay()

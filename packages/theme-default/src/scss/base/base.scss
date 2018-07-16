@@ -18,7 +18,9 @@ li {
 .hidden-overflow {
   overflow: hidden;
 }
-
+.no-touch-action{
+  touch-action: none
+}
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
