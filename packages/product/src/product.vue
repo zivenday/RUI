@@ -3,14 +3,14 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-05 10:10:10
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 09:57:41
+ * @Last Modified time: 2018-07-17 10:29:51
  */
 <template>
   <div class="r-product">
     <div class="r-product__show">
       <r-carousel :height="320">
         <r-carousel-item v-for="(pic,index) in showPicList" :key="index">
-          <img :src="pic.src" :alt="pic.alt?pic.alt:''">
+          <img v-lazy="pic.src" :alt="pic.alt?pic.alt:''">
         </r-carousel-item>
       </r-carousel>
     </div>
@@ -45,7 +45,7 @@
       </div>
       <div>
         <div v-for="(pic,index) in detailPicList" :key="index">
-          <img :src="pic.src" :alt="pic.alt?pic.alt:''">
+          <img v-lazy="pic.src" :alt="pic.alt?pic.alt:''">
         </div>
       </div>
     </div>

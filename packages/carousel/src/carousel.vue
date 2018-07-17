@@ -3,7 +3,7 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-16 17:05:49
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-16 17:05:49
+ * @Last Modified time: 2018-07-17 09:23:29
  */
 <template>
   <div class="r-carousel" :style="[{width:pxToview(width),height:pxToview(height)}]">
@@ -57,10 +57,8 @@ export default {
       wh: 0,
       isTouch: false,
       speed: 0,
-      end: false,
       recoverDuration: 0,
-      moving: false,
-      end: false
+      moving: false
     }
   },
   provide () {
@@ -95,7 +93,7 @@ export default {
       // 如果是正在滑动，说明手指正在滑到，则不要有延迟
       if (this.moving) {
         return 0
-      // 如果滑动已经结束，这设置滑动时间，图片按照移动的速度滑到对应位置
+        // 如果滑动已经结束，这设置滑动时间，图片按照移动的速度滑到对应位置
       } else {
         return 200
       }
@@ -125,7 +123,6 @@ export default {
       ev.preventDefault()
       this.touchEnd(ev)
       const num = this.count - 1
-      this.end = true
       this.moving = false
       // 当滑动距离超过轮播图宽度一半时，或者手指快速滑动时，滑动图片
       if (this.offsetX >= this.wh / 2 || this.offsetT < 300) {
@@ -143,14 +140,15 @@ export default {
         // 其他则回到当前index的位置
         this.offset = -(this.wh * this.currentIndex)
       }
+      // setTimeout(() => {
       this.autoplay()
+      // }, 2000)
     },
     onTouchCancel () {
       this.isTouch = false
     },
     autoplay () {
       this.interval = setInterval(() => {
-        console.log(111)
         this.isTouch = false
         this.setCurrentIndex()
       }, this.delay * 1000)
@@ -168,7 +166,6 @@ export default {
       if (!this.isTouch) {
         this.offset = this.currentIndex !== num ? -(this.wh * (this.currentIndex + 1)) : 0
       } else {
-        // console.log(this.deltaX)
         this.offset = -(this.wh * this.currentIndex) + this.deltaX
       }
     }

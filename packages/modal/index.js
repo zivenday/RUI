@@ -3,7 +3,7 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-10 17:35:30
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 15:30:44
+ * @Last Modified time: 2018-07-17 11:46:08
  */
 'use strict'
 import manager from './manager';
@@ -36,9 +36,10 @@ export default {
       if (this.lockScroll) {
         on(document, 'touchstart', this.touchStart);
         on(document, 'touchmove', this.onTouchMove);
-        if (!context.lockCount) {
-          document.body.classList.add('hidden-overflow');
-        }
+        // if (!context.lockCount) {
+        //   document.body.classList.add('hidden-overflow');
+        // }
+        document.body.classList.add('hidden-overflow');
         context.lockCount++;
       }
       manager.open(this)
@@ -48,10 +49,11 @@ export default {
         context.lockCount--;
         off(document, 'touchstart', this.touchStart);
         off(document, 'touchmove', this.onTouchMove);
-        if (!context.lockCount) {
-          document.body.classList.remove('hidden-overflow');
-        }
+        // if (!context.lockCount) {
+        document.body.classList.remove('hidden-overflow');
+        // }
       }
+      document.body.classList.remove('hidden-overflow');
       manager.close()
     },
     move () {

@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-07-01 17:37:07
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-11 23:20:29
+ * @Last Modified time: 2018-07-17 14:57:34
  */
 <template>
   <r-bottom-pop class="r-simple-sku" :show="current" @close="handleClose">
@@ -117,14 +117,13 @@ export default {
       this.$emit('plus', val)
     },
     handleSubmit () {
-      console.log('>>>>>>>>>>')
       const data = {
         count: this.value,
         sku: this.packageList[this.currentIndex]
       }
-      this.$emit('submit', data)
+      this.handleClose()
       this.$nextTick(() => {
-        // this.handleClose()
+        this.$emit('submit', data)
       })
     },
     handleSkuClick (index) {

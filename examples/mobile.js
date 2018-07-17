@@ -6,6 +6,7 @@ import App from './WapApp'
 import VueRouter from 'vue-router'
 import routers from './router'
 import RLEM from '../packages'
+// import VueLazyload from 'vue-lazyload'
 import '../packages/theme-default/src/scss/index.scss'
 // import '../theme/index.css'
 
@@ -13,6 +14,7 @@ import '../packages/theme-default/src/scss/index.scss'
 // const base=
 
 Vue.use(RLEM)
+
 const router = new VueRouter({
   mode: 'hash',
   base: (process.env.BUILD_ENV === 'prod' ? '/RUI/dist' : '') + '/examples.html',

@@ -64,8 +64,7 @@ export default {
     handleChoose (tab, space) {
       tab.label = space.name
       let newTab = {}
-      console.log(tab)
-      if (tab.name === '3') {
+      if (tab.name === '3' || space.code === '71' || space.code === '81' || space.code === '82') {
         this.confirmAction()
       } else {
         newTab = this.prepareTab(tab.name, space.code)

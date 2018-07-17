@@ -2,42 +2,42 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 15:38:26
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-05 10:14:32
+ * @Last Modified time: 2018-07-17 10:26:09
  */
-import RButton from './button/index.js'
-import RLead from './lead/index.js'
-import RCashBulk from './cash-bulk/index.js'
-import RCashBulkGroup from './cash-bulk-group/index.js'
-import RTable from './table/index.js'
-import RInput from './input/index.js'
-import RForm from './form/index.js'
-import RFormItem from './form-item/index.js'
-import MessageBox from './message/index.js'
-import RButtonGroup from './button-group/index.js'
-import RTag from './tag/index.js'
-import RDialog from './dialog/index.js'
-import RAutoComplete from './auto-complete/index.js'
-import RIcon from './icon/index.js'
-import RTabs from './tabs/index.js'
-import RTabPane from './tab-pane/index.js'
-import RRadio from './radio/index.js'
-import RCheckbox from './checkbox/index.js'
-import RCheckboxButton from './checkbox-button/index.js'
-import RCheckboxGroup from './checkbox-group/index.js'
-import RLazyload from './lazyload/index.js'
-import RCarousel from './carousel/index.js'
-import RCarouselItem from './carousel-item/index.js'
-import RPageNavbar from './page-navbar/index.js'
-import RPayBottombar from './pay-bottombar/index.js'
-import RCountBar from './count-bar/index.js'
-import NoticeBox from './notice/index.js'
-import RAddressGrounp from './address-group/index.js'
-import RAddress from './address/index.js'
-import RBottomPop from './bottom-pop/index.js'
-import RSimpleSku from './simple-sku/index.js'
-import RRegionChoose from './region-choose/index.js'
-import RProduct from './product/index.js'
-import RSkuCard from './sku-card/index.js'
+import RButton from './button'
+import RLead from './lead'
+import RCashBulk from './cash-bulk'
+import RCashBulkGroup from './cash-bulk-group'
+import RTable from './table'
+import RInput from './input'
+import RForm from './form'
+import RFormItem from './form-item'
+import MessageBox from './message'
+import RButtonGroup from './button-group'
+import RTag from './tag'
+import RDialog from './dialog'
+import RAutoComplete from './auto-complete'
+import RIcon from './icon'
+import RTabs from './tabs'
+import RTabPane from './tab-pane'
+import RRadio from './radio'
+import RCheckbox from './checkbox'
+import RCheckboxButton from './checkbox-button'
+import RCheckboxGroup from './checkbox-group'
+import Lazyload from './lazyload'
+import RCarousel from './carousel'
+import RCarouselItem from './carousel-item'
+import RPageNavbar from './page-navbar'
+import RPayBottombar from './pay-bottombar'
+import RCountBar from './count-bar'
+import NoticeBox from './notice'
+import RAddressGrounp from './address-group'
+import RAddress from './address'
+import RBottomPop from './bottom-pop'
+import RSimpleSku from './simple-sku'
+import RRegionChoose from './region-choose'
+import RProduct from './product'
+import RSkuCard from './sku-card'
 
 const components = [
   RButton,
@@ -82,6 +82,7 @@ const install = function (Vue, opts = {}) {
   components.map(component => {
     Vue.component(component.name, component)
   })
+  Vue.use(Lazyload)
   Vue.prototype.$alert = MessageBox.alert
   Vue.prototype.$confirm = MessageBox.confirm
   Vue.prototype.$loading = MessageBox.loading
@@ -112,7 +113,7 @@ export {
   RCheckbox,
   RCheckboxButton,
   RCheckboxGroup,
-  RLazyload,
+  Lazyload,
   RCarousel,
   RCarouselItem,
   MessageBox,

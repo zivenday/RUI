@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-04 14:45:44 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 15:49:05
+ * @Last Modified time: 2018-07-17 11:05:43
  */
 
 /* eslint-disable no-undef,semi,no-unused-vars,prefer-const,comma-dangle,import/newline-after-import,max-len,indent,arrow-body-style,object-shorthand,no-multi-spaces,no-param-reassign,dot-notation,comma-spacing,no-unused-expressions,keyword-spacing,space-in-parens,no-empty,key-spacing,consistent-return,no-else-return,padded-blocks,object-curly-spacing,no-lonely-if */
@@ -119,19 +119,6 @@ MessageBox.confirm = (options) => {
   }, options))
 }
 
-MessageBox.frame = (options) => {
-  return MessageBox(merge({
-    title: options.title,
-    message: options.message,
-    $type: 'frame',
-    iconShow: false,
-    iconClass: 'cuowu',
-    closeOnPressEscape: false,// 点击弹框外围消失
-    closeOnClickModal: false,
-    hasModal: true,
-    cancel: options.cancel,
-    ensure: options.ensure
-  }, options))
-}
+
 export default MessageBox;
 export { MessageBox };

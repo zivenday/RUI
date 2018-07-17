@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-26 12:02:26 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 09:40:22
+ * @Last Modified time: 2018-07-17 11:00:48
  */
 
 @charset 'utf-8';
@@ -25,7 +25,7 @@
       width: 6px;
       height: 6px;
       border: $--carousel-dot-border;
-      background-color: $--color-white;
+      background: transparent;
       border-radius: 100%;
       margin:0 5px;
       @include when(active) {
