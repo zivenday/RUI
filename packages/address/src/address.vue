@@ -7,10 +7,10 @@
       </span>
       <div class="r-address__inner__info">
         <div>
-          <span>{{info.name}}</span>
-          <span>{{info.tel}}</span>
+          <span>{{info[`${nameKey}`]}}</span>
+          <span>{{info[`${telKey}`]}}</span>
         </div>
-        <div class="r-address__inner__info__addr" style="word-wrap: break-word; word-break: normal;">{{info.addr}}</div>
+        <div class="r-address__inner__info__addr" style="word-wrap: break-word; word-break: normal;">{{info[`${addrKey}`]}}</div>
       </div>
     </div>
     <div class="r-address__bottom">
@@ -33,7 +33,19 @@ export default {
   componentName: 'RAddress',
   mixins: [Emitter],
   props: {
-    info: Object
+    info: Object,
+    nameKey: {
+      type: String,
+      default: 'name'
+    },
+    telKey: {
+      type: String,
+      default: 'tel'
+    },
+    addrKey: {
+      type: String,
+      default: 'addr'
+    }
   },
   computed: {
     value: {
@@ -55,7 +67,7 @@ export default {
         if (parent.$options.name !== 'RAddressGroup') {
           parent = parent.$parent
         } else {
-          console.log('????>>>>', parent)
+          // console.log('????>>>>', parent)
           return parent
         }
       }
@@ -68,9 +80,9 @@ export default {
     }
   },
   methods: {
-    handleChange (val) {
+    handleChange (event) {
       this.$nextTick(() => {
-        this.dispatch('RAddressGroup', 'handleChange', this.value)
+        this.dispatch('RAddressGroup', 'handleChange', event.target._value)
       })
     },
     handleClick () {

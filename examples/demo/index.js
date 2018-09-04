@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-28 17:41:09 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-06 14:34:39
+ * @Last Modified time: 2018-08-23 10:58:12
  */
 
 const helloword = () => import('./pages/HelloWorld.vue')
@@ -22,6 +22,8 @@ const message = () => import('./pages/message.vue')
 const regionChoose = () => import('./pages/region-choose.vue')
 const product = () => import('./pages/product.vue')
 const skuCard = () => import('./pages/sku-card.vue')
+const scrollFresh = () => import('./pages/scroll-fresh.vue')
+const dialog = () => import('./pages/dialog.vue')
 
 export default {
   'helloword': helloword,
@@ -40,5 +42,7 @@ export default {
   'region-choose':regionChoose,
   'product':product,
   'sku-card':skuCard,
-  'test': test
+  'test': test,
+  'scroll-fresh':scrollFresh,
+  'dialog':dialog
 };

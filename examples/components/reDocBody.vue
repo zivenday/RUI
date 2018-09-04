@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-05-31 15:23:28
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-05 17:02:48
+ * @Last Modified time: 2018-07-27 00:15:55
  */
 
 <template>
@@ -70,7 +70,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 // @import "../assets/scss/components/reDocNav";
 @import "../assets/scss/components/reDocMarkDown";
 @import "../assets/scss/components/reDocMain";

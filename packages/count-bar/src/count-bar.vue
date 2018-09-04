@@ -46,11 +46,22 @@ export default {
   },
   watch: {
     'value' (val, oldVal) {
-      console.log('watch...')
+      // console.log('watch...')
     },
     'currentValue' (val) {
-      this.disabledMins = val <= this.min
-      this.disabledPlus = val >= this.max
+      if (val !== '') {
+        this.disabledMins = val <= this.min
+        this.disabledPlus = val >= this.max
+      }
+    },
+    max (val) {
+      if (this.currentValue >= val) {
+        this.currentValue = val
+        this.disabledPlus = true
+        // this.$emit('change', this.currentValue)
+      } else {
+        this.disabledPlus = false
+      }
     }
   },
   mounted () {
@@ -59,6 +70,7 @@ export default {
   },
   methods: {
     checkAndFliter (val) {
+      console.log('checkAndFliter', val, this.min, this.max)
       if (isNaN(val) || val < this.min) {
         return this.min
       } else if (val > this.max) {
@@ -76,6 +88,7 @@ export default {
     },
     handlePlus () {
       ++this.currentValue
+      // this.checkAndFliter(++this.currentValue)
       this.$emit('change', this.currentValue)
       this.$emit('plus', this.currentValue)
     },
@@ -86,7 +99,8 @@ export default {
      */
     handleInput (event) {
       const { value } = event.target
-      this.currentValue = value ? this.checkAndFliter(+value) : value
+      console.log('value:', value)
+      this.currentValue = (value ? this.checkAndFliter(+value) : value)
       event.target.value = this.currentValue//currentValue与事件value同步
       this.$emit('input', this.currentValue)
       this.$emit('change', this.currentValue)

@@ -5,7 +5,7 @@
       {
         'is-disabled': disabled
       }
-    ]" :style="[pxToview(styles),{width:pxToview(width),height:pxToview(height)}]">
+    ]" :style="[{width:pxToview(width),height:pxToview(height)},pxToview(styles)]">
     <span v-if="$slots.default" @click="handleInnerClick">
       <slot></slot>
     </span>

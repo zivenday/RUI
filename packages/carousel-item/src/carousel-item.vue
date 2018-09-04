@@ -1,14 +1,15 @@
 <template>
-  <div class="r-carousel-item" :style="[{width:width,height:height}]">
+  <div class="r-carousel-item" :style="[{width:pxToview(width),height:pxToview(height)}]">
     <slot/>
   </div>
 </template>
 <script>
 import StyleFun from '../../utils/mixin/style.js'
+import Emitter from '../../utils/mixin/emitter'
 export default {
   name: 'RCarouselItem',
   componentName: 'RCarouselItem',
-  mixins: [StyleFun],
+  mixins: [StyleFun, Emitter],
   inject: ['rCarousel'],
   computed: {
     carousel () {
@@ -29,11 +30,13 @@ export default {
       height: ''
     }
   },
+  created () {
+    this.dispatch('RCarousel', 'r.carousel.addField', [this])
+  },
   mounted () {
-    const rect = this.carousel.$el
-    this.height = rect.offsetHeight + 'px'
-    this.width = rect.offsetWidth + 'px'
-    // console.log(this.carousel, this.height, this.width)
+    const rect = this.carousel.$el.getBoundingClientRect()
+    this.width = rect.width
+    this.height = this.carousel.isNullHight ? this.width * 320 / 375 : this.carousel.height
   }
 }
 </script>

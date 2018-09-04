@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-28 17:44:41 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-30 20:05:26
+ * @Last Modified time: 2018-08-21 23:32:17
  */
 
 @charset 'utf-8';
@@ -29,14 +29,17 @@
       width: $--notice-width-text;
       overflow: hidden;
       span {
+        white-space:nowrap;
         @include when(scroll) {
           position: relative;
           display: inline-block;
           animation: notice-play linear both;
+          opacity: 1;
           @include m(infinite) {
             position: relative;
             display: inline-block;
             animation: notice-play-infinite linear infinite both;
+            opacity: 1;
           }
         } // @include when('scroll--infinite') {
         //   position: relative;

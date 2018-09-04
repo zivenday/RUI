@@ -2,14 +2,14 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-30 20:38:40 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-17 14:50:24
+ * @Last Modified time: 2018-08-27 12:02:17
  */
 
 @charset 'utf-8';
 @import "../../helps/var.scss";
 @import "../../helps/mixin.scss";
 @include b(address) {
-  width: $--address-width;
+  width: 100%;
   min-height: $--address-height;
   background: $--address-fill;
   padding-left: $--address-padding-left;

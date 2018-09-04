@@ -1,9 +1,11 @@
 <template>
-  <div style="background:gray;height:100%">
-    bottom-pop
-    <r-bottom-pop :show.sync="show">
+  <div>
+    <p></p>
+    <r-lead>底部弹框：</r-lead>
+    <p></p>
+    <r-bottom-pop :show.sync="show" :title="'弹框标题'">
     </r-bottom-pop>
-    <r-button type="primary" @click="handleClick"></r-button>
+    <r-button type="primary" @click="handleClick">显示底部弹框</r-button>
   </div>
 </template>
 <script>

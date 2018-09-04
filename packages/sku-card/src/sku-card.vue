@@ -3,7 +3,7 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-06 10:36:27
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 10:41:46
+ * @Last Modified time: 2018-08-27 15:21:21
  */
 <template>
   <div class="r-sku-card">
@@ -31,7 +31,7 @@ export default {
     },
     src: {
       type: String,
-      default: 'https://img.yzcdn.cn/public_files/2017/09/05/bac1903e863834ace25773f3554b6890.jpg'
+      default: ''
     },
     name: {
       type: String,
@@ -45,10 +45,10 @@ export default {
       }
     },
     price: {
-      type: Number,
+      type: [Number, String],
       default: 100,
       validator: function (value) {
-        return value > 0
+        return value >= 0
       }
     }
   },

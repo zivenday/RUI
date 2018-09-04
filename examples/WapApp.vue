@@ -1,8 +1,6 @@
 <template>
-  <div style="width: 100%">
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+  <div class="mobile">
+    <router-view />
   </div>
 </template>
 
@@ -14,7 +12,11 @@ export default {
       return name ? name.replace(/-/g, '') : ''
     }
   },
-
+  watch: {
+    $route (to, from) {
+      to.name !== from.name && from.name !== null ? document.location.reload() : undefined
+    }
+  },
   methods: {
     onBack () {
       history.back()
@@ -23,17 +25,26 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style>
 body {
   color: #333;
   line-height: 1;
   background-color: transparent;
-  font-family: Arial, Helvetica, "STHeiti STXihei", "Microsoft YaHei", Tohoma,
-    sans-serif;
+  font-family: PingFangSC-Regular;
   -webkit-font-smoothing: antialiased;
+  background: #f1f1f1;
 }
 
-.van-doc-nav-bar {
+.mobile {
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+}
+.demo{
+  padding-bottom: 30px;
+}
+/* .van-doc-nav-bar {
   .van-nav-bar__title {
     font-size: 15px;
     text-transform: capitalize;
@@ -43,5 +54,5 @@ body {
 .van-doc-demo-section {
   margin-top: -46px;
   padding-top: 46px;
-}
+} */
 </style>

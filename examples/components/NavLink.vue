@@ -13,6 +13,7 @@ export default {
   },
   computed: {
     itemName () {
+      console.log('>>>>>>>>>>>>',this.item,this.item.title || this.item.name)
       const name = (this.item.title || this.item.name).split(' - ')
       return `${name[0]} <span>${name.slice(1).join(' - ')}</span>`
     }

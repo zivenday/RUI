@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-04 09:48:44 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-04 17:15:58
+ * @Last Modified time: 2018-08-21 17:53:33
  */
  @charset 'utf-8';
  @import '../normalize';
@@ -10,7 +10,9 @@
  @import '../help/functions';
 
  .re-doc-main{
-   margin-left: 220px;
+   margin-left: 275px;
+   width:calc(100% - 275px);
+   max-width: calc(100% - 275px);
    position: relative;
    height: 100%;
  }

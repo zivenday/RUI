@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-07-01 19:55:02 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 10:01:11
+ * @Last Modified time: 2018-08-28 11:55:16
  */
 
 @charset 'utf-8';
@@ -24,13 +24,15 @@
       }
     }
     &--detail {
-      float: left;
+      position:absolute;
       color: $--simple-sku-color;
+      margin-left: 112px;
       font-size: 12px;
       text-align: left;
-      padding: 59px 0 0 10px;
+      padding: 59px 0 0 0px;
       box-sizing: border-box;
       height: 100px;
+      
       &>div:first-child {
         color: $--color-primary;
         font-size: 18px;
@@ -39,17 +41,21 @@
       }
     }
   }
+  .sku__choice{
+    max-height: 400px;
+    overflow-y: auto;
+    width:100%;
+  }
   .sku__package {
-    height: 97px;
     width: 100%;
     padding-left: 12px;
     box-sizing: border-box;
     &>div {
-      height: 97px;
-      padding: 20px 12px 20px 0;
+      padding: 20px 0px 20px 0;
       box-sizing: border-box;
       border-top: 1px solid #ECECEC;
       border-bottom: 1px solid #ECECEC;
+      overflow-y: auto;
       &>div:first-child {
         font-family: PingFangSC-Regular;
         font-size: 14px;
@@ -70,6 +76,10 @@
           background: #F1F1F1;
           color: #333;
           box-sizing: border-box;
+          margin-bottom:10px;
+          @include when(disabled){
+            color:#999
+          }
           @include when(checked) {
             background-image: linear-gradient(-90deg, #FD6B00 0%, #FF9D21 100%);
             color: #FFFFFF;
@@ -102,6 +112,10 @@
     text-align: center;
     padding: 17px 0;
     box-sizing: border-box;
+    @include when(disabled){
+      background: #cdcdcd;
+      color:#666
+    }
   }
   .clear {
     clear: both;

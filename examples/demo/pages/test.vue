@@ -47,7 +47,7 @@
     <!--</div>-->
 
     <!--</r-fade-in-transition>-->
-    <r-input v-model="value1" disabled>
+    <r-input v-model="value1" :text-style="{'text-align':'right'}">
       <i slot="suffix" class="iconfont r-icon-error"></i>
     </r-input>
     <!-- <input v-model="value1"> -->
@@ -59,7 +59,8 @@
       </div>
     </collapse-transition> -->
     <r-button type="primary" size="fix" @click="CallClick">
-      <r-icon name="yiwen"></r-icon>弹框</r-button>
+      <r-icon name="bianji"></r-icon>
+      <r-icon name="shanchu"></r-icon>弹框</r-button>
     <div style="height: 20px"></div>
     <r-tag type="success">在用</r-tag>
     <div style="height: 20px"></div>
@@ -128,6 +129,7 @@ export default {
       rules: {
         name: { required: true, validator: abc, trigger: 'blur' }
       },
+      noticeList: ['订购成功后，如需查看订单，请关注【物联易充】微信公众号rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'],
       allData: [
         { 'value': '8986031540252320642', 'address': '长宁区新渔路144号' },
         { 'value': '8986031540252366666', 'address': '上海市长宁区淞虹路661号' },
@@ -139,15 +141,18 @@ export default {
     }
   },
   mounted () {
+
     // console.log('sdfsdfsd', window.iframe)
   },
   methods: {
     CallClick () {
-      this.$alert({
-        message: 'sdfsdf',
-        iconShow: false,
-        closeOnPressEscape: true
-      })
+      this.$confirm({ message: '我是中国是的发送到水电费斯蒂芬斯蒂芬是的发送到多多多多多多多多多多多多多多多多多多多多多多多' })
+      // this.$loading('查询中...')
+      // this.$waiting()
+      // this.$notice(this.noticeList)
+      // setTimeout(() => {
+      //   this.$waiting('end')
+      // }, 5000)
     },
     handleClose () {
       this.isShow = false

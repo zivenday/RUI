@@ -1,15 +1,20 @@
 <template>
-  <div style="background:gray;height:100%">
-    region-choose
+  <div>
+    <p></p>
+    <r-lead>区域选择：</r-lead>
+    <p></p>
+    <r-input type="primary" v-model="value"></r-input>
+    <p></p>
+    <r-button type="primary" @click="handleClick">弹出区域选择</r-button>
     <r-region-choose :show.sync="show" @confirm="handleConfirm">
     </r-region-choose>
-    <r-button type="primary" @click="handleClick"></r-button>
   </div>
 </template>
 <script>
 export default {
   data () {
     return {
+      value: '',
       show: false
     }
   },
@@ -18,7 +23,7 @@ export default {
       this.show = true
     },
     handleConfirm (val) {
-      console.log(val)
+      this.value = val
     }
   }
 }

@@ -2,19 +2,19 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-27 10:19:43
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-05 15:16:22
+ * @Last Modified time: 2018-08-22 11:39:59
  */
 <template>
-<div class="r-page-navbar">
-  <div class="r-page-navbar__table" @click="handleClick" :style="{height:pxToview(height)}">
-    <a class="r-page-navbar__contents" :class="'r-page-navbar__contents--'+(arrow==='left'?'right':'left')">
-      <slot></slot>
-    </a>
-    <a class="r-page-navbar__arrow" :class="[arrow?'r-page-navbar__arrow--'+arrow:'r-page-navbar__arrow--right']">
-      <r-icon name="jiantou" :style="{width:pxToview(awidth),height:pxToview(aheight)}"></r-icon>
-    </a>
+  <div class="r-page-navbar">
+    <div class="r-page-navbar__table" :class="'r-page-navbar__table--'+(arrow==='left'?'left':'right')" @click="handleClick" :style="{height:pxToview(height)}">
+      <div class="r-page-navbar__arrow" :class="[arrow==='left'?'r-page-navbar__arrow--'+arrow:'r-page-navbar__arrow--right']">
+        <r-icon name="jiantou" :style="{width:pxToview(awidth),height:pxToview(aheight)}"></r-icon>
+      </div>
+      <div class="r-page-navbar__contents" >
+        <slot></slot>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 <script>
 import StyleFun from '../../utils/mixin/style.js'
@@ -24,10 +24,7 @@ export default {
   mixins: [StyleFun],
   props: {
     arrow: String,
-    height: {
-      type: [Number, String],
-      default: 60
-    },
+    height: [Number, String],
     awidth: {
       type: Number,
       default: 6.5

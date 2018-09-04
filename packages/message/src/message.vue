@@ -3,18 +3,23 @@
     <div class="r-message-box" v-show="showBox" @touchmove.prevent.stop>
       <div class="r-message-box__mask" @touchstart="handleClose" :class="{'is-modal':options.hasModal}">
       </div>
-      <div class="r-message-box__body" :class="{'is-select': options.$type==='input'||options.$type==='confirm'}">
+      <div class="r-message-box__body" :class="{'is-select': options.$type==='input'||options.$type==='confirm','is-waiting':options.$type==='waiting'}">
         <div class="r-message-box__title" v-if="options.title">{{options.title}}</div>
         <div class="r-message-box__icon" v-if="options.iconShow">
           <r-icon :name="options.iconClass"></r-icon>
         </div>
-        <div class="r-message-box__content" :class="{'is-select': options.$type==='input'||options.$type==='confirm'}">{{options.message}}</div>
-        <div class="r-message-box__input" v-show="options.$type==='input'"></div>
-        <div class="r-message-box__btn" v-show="options.$type==='alert'||options.$type==='loading'"></div>
-        <div class="r-message-box__confirm" v-show="options.$type==='input'||options.$type==='confirm'">
+        <div class="r-message-box__content" :class="{'is-select': options.$type==='input'||options.$type==='confirm'}" v-if="options.message">{{options.message}}</div>
+        <div class="r-message-box__input" v-if="options.$type==='input'"></div>
+        <div class="r-message-box__btn" v-if="options.$type==='alert'||options.$type==='tips'"></div>
+        <div class="r-message-box__confirm" v-if="options.$type==='input'||options.$type==='confirm'">
           <a @click="handleCancel">取消</a>
           <a @click="handleConfirm">确定</a>
         </div>
+        <span class="r-message-box__wait" v-if="options.$type==='waiting'">
+          <svg  viewBox="25 25 50 50">
+            <circle cx="50" cy="50" r="20" fill="none" />
+          </svg>
+        </span>
       </div>
     </div>
   </transition>
@@ -50,7 +55,6 @@ export default {
       this.$emit('close')
     },
     handleCancel () {
-      console.log(12312312, Object.prototype.toString.call(this.options.cancel))
       Object.prototype.toString.call(this.options.cancel) === '[object Function]' ? this.options.cancel() : undefined
       this.$emit('cancel')
       this.$emit('close')

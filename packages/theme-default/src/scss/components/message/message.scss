@@ -39,6 +39,12 @@
       background-color: $--color-white;
       opacity: 1;
     }
+    @include when(waiting) {
+      padding:5px 7px 7px 7px ;
+      width: 50px;
+      height: 50px;
+      border-radius:5px;
+    }
   }
   @include e(confirm) {
     width: 100%;
@@ -51,7 +57,7 @@
       height: 100%;
       font-size: 14px;
       font-family: $--font-family;
-      padding: 13.5px 0;
+      padding: 11.5px 0;
       box-sizing: border-box;
       color: #666;
       &:first-child {
@@ -95,18 +101,45 @@
     word-wrap: break-word;
     word-break: normal;
     text-align: center;
+    line-height: 1.44;
     @include when(select) {
       padding: 28px 12px 25px 12px;
       color: #333;
       box-sizing: border-box;
     } //  -webkit-animation: twinkling 1s  ease-in-out
   }
-  @-webkit-keyframes twinkling {
+  @include e(wait) {
+    svg {
+      width: 100%;
+      height: 100%;
+      width: 30px;
+      height: 30px;
+      z-index: 0;
+      font-size: 0;
+      line-height: 0;
+      position: relative;
+      vertical-align: middle;
+      circle {
+        stroke: #fff;
+        stroke-width: 3;
+        stroke-linecap: round;
+        -webkit-animation: circular 1.5s ease-in-out infinite;
+        animation: circular 1.5s ease-in-out infinite;
+      }
+    }
+  }
+  @keyframes circular {
     0% {
-      opacity: 0.5;
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -40;
     }
     100% {
-      opacity: 1;
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -120;
     }
   }
   @keyframes twinkling {

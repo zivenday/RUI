@@ -3,14 +3,14 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-05 10:10:10
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-17 10:29:51
+ * @Last Modified time: 2018-07-31 16:58:48
  */
 <template>
   <div class="r-product">
     <div class="r-product__show">
-      <r-carousel :height="320">
+      <r-carousel>
         <r-carousel-item v-for="(pic,index) in showPicList" :key="index">
-          <img v-lazy="pic.src" :alt="pic.alt?pic.alt:''">
+          <img v-lazy="pic[`${srcKey}`]" :alt="pic.alt?pic.alt:''">
         </r-carousel-item>
       </r-carousel>
     </div>
@@ -21,20 +21,27 @@
       </div>
     </div>
     <div class="r-product__tag">
-      <div>运费：免邮</div>
       <div>
-        <r-icon name="correct"></r-icon>
-        <span>品质保证</span>
-        <r-icon name="correct"></r-icon>
-        <span>全面质检</span>
+        <span>运费</span>
+        <span>{{carriage}}</span>
+      </div>
+      <div v-for="(service,index) in serviceList" :key="index+'0'">
+        <span>服务</span>
+        <r-icon name="correct" :index="index+'0'"></r-icon>
+        <span style="color:#444">{{service[`${serviceKey}`]}}</span>
       </div>
     </div>
     <div class="r-product__navbar">
-      <r-page-navbar @click="skuClick" :height="40">
-        <span>选择：{{sku.name?sku.name:'套餐'}}</span>
+      <r-page-navbar @click="skuClick" :height="40" v-for="(choice,index) in choiceList" :key="index+'1'">
+        <span>规格</span>
+        <span>选择</span>
+        <span v-if="index<=2">{{choice[`${choiceKey}`]}}</span>
+        <span v-if="index>2">...</span>
       </r-page-navbar>
-      <r-page-navbar @click="paramerClick" :height="40">
-        <span>商品参数</span>
+      <r-page-navbar @click="paramClick" :height="40" v-for="(param,index) in paramList" :key="index+'2'">
+        <span>参数</span>
+        <span v-if="index<=2">{{param[`${paramKey}`]}}</span>
+        <span v-if="index>2">...</span>
       </r-page-navbar>
     </div>
     <div class="r-product__detail">
@@ -45,7 +52,7 @@
       </div>
       <div>
         <div v-for="(pic,index) in detailPicList" :key="index">
-          <img v-lazy="pic.src" :alt="pic.alt?pic.alt:''">
+          <img v-lazy="pic[`${srcKey}`]" :alt="pic.alt?pic.alt:''">
         </div>
       </div>
     </div>
@@ -60,12 +67,32 @@ export default {
   props: {
     showPicList: Array,
     detailPicList: Array,
-    sku: {
-      type: Object,
+    carriage: {
+      type: [Number, String],
+      default: '免邮'
+    },
+    serviceList: {
+      type: Array,
       default: () => {
-        return {
-          name: '套餐'
-        }
+        return [{
+          name: '1年保修'
+        }]
+      }
+    },
+    choiceList: {
+      type: Array,
+      default: () => {
+        return [{
+          name: '清晰度'
+        }]
+      }
+    },
+    paramList: {
+      type: Array,
+      default: () => {
+        return [{
+          name: '清晰度'
+        }]
       }
     },
     product: {
@@ -73,9 +100,25 @@ export default {
       default: () => {
         return {
           name: '商品',
-          price: '价格'
+          price: 100
         }
       }
+    },
+    srcKey: {
+      type: String,
+      default: 'src'
+    },
+    choiceKey: {
+      type: String,
+      default: 'name'
+    },
+    serviceKey: {
+      type: String,
+      default: 'name'
+    },
+    paramKey: {
+      type: String,
+      default: 'name'
     }
   },
   data () {
@@ -87,7 +130,7 @@ export default {
     skuClick () {
       this.$emit('sku-click')
     },
-    paramerClick () {
+    paramClick () {
       this.$emit('param-click')
     }
   }

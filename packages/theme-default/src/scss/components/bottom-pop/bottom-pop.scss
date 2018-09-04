@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-07-01 14:37:30 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 10:59:17
+ * @Last Modified time: 2018-08-10 00:18:19
  */
 
 @import "../../helps/var.scss";
@@ -35,7 +35,7 @@
     float: right;
     padding: 12.6px;
     @include when(toped){
-      margin-top: -28.6px;
+      margin-top: -31.6px;
     }
     .iconfont{
       // font-size: 18px;

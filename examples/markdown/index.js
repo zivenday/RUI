@@ -21,6 +21,8 @@ const message=()=>import('./zh-CN/message.md')
 const regionChoose=()=>import('./zh-CN/region-choose.md')
 const product=()=>import('./zh-CN/product.md')
 const skuCard=()=>import('./zh-CN/sku-card.md')
+const scrollFresh=()=>import('./zh-CN/scroll-fresh.md')
+const dialog=()=>import('./zh-CN/dialog.md')
 
 export default {
   'zh-CN/test': test,
@@ -39,5 +41,7 @@ export default {
   'zh-CN/message':message,
   'zh-CN/region-choose':regionChoose,  
   'zh-CN/product':product,  
-  'zh-CN/sku-card':skuCard
+  'zh-CN/sku-card':skuCard,
+  'zh-CN/scroll-fresh':scrollFresh,
+  'zh-CN/dialog':dialog
 };

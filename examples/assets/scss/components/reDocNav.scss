@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-04 10:06:40 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-04 10:08:21
+ * @Last Modified time: 2018-08-21 17:47:28
  */
   .re-doc-nav {
     z-index: 1;
@@ -11,17 +11,8 @@
     padding: 25px 0 75px;
     text-align: left;
     padding-left: 70px;
-    // @media (max-width: 1140px) {
-    //   min-width: 220px;
-    //   max-width: 220px;
-    //   margin-left: 70px;
-    // }
-  
-    // @media (min-width: 1140px) {
-    //   // left: 50%;
-    //   margin-left: 0;
-    // }
-  
+    box-sizing: border-box;
+    width: 275px;
     &::-webkit-scrollbar {
       height: 6px;
       width: 6px;

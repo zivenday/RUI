@@ -8,7 +8,7 @@
     ]" :style="[{ width:pxToview(width), height:pxToview(height),lineHeight:pxToview(height)},pxToview(styles)]">
     <div class="r-input__inner">
       <slot name="prefix" v-if="$slots.prefix"></slot>
-      <input v-bind="$props" :disabled="disabled" :type="inputType" :placeholder="!!placeholder?placeholder:''" :value="currentValue" ref="input" @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur">
+      <input v-bind="$props" :disabled="disabled" :type="inputType" :placeholder="!!placeholder?placeholder:''" :value="currentValue" ref="input" @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur" :style="pxToview(textStyle)">
       <slot name="suffix" v-if="$slots.suffix"></slot>
     </div>
   </div>
@@ -27,6 +27,12 @@ export default {
     height: [String, Number],
     styles: Object,
     type: String,
+    textStyle: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
     disabled: {
       type: Boolean,
       default: false

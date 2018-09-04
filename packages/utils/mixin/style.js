@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 15:51:58
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-12 16:53:59
+ * @Last Modified time: 2018-07-17 18:05:35
  */
 
 export default {
@@ -29,7 +29,7 @@ export default {
       } else if (type === '[object Number]' || reg.test(val)) {
         /* 如果是数字或者像素值 根据数字，像素值获取可运算的值 */
         const value = reg.test(val) ? val.split('px')[0] : val
-        return 100 * value / 375 + 'vw'
+        return 100 * value / document.documentElement.clientWidth + 'vw'
       }
     }
   }

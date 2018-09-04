@@ -1,12 +1,12 @@
 <template>
-<transition name="msgbox-fade">
-  <div class="r-dialog" :model="model" v-show="show">
-    <div class="r-dialog__inner">
-      <span class="iconfont r-icon-error r-dialog__close" @click="handleClose"></span>
-      <slot></slot>
+  <transition name="msgbox-fade">
+    <div class="r-dialog" :class="{'is-model':model}" v-show="show">
+      <div class="r-dialog__inner">
+        <span class="iconfont r-icon-error r-dialog__close" @click="handleClose"></span>
+        <slot></slot>
+      </div>
     </div>
-  </div>
-</transition>
+  </transition>
 </template>
 <script>
 export default {

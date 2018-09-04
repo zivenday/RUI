@@ -15,6 +15,7 @@ export default {
 .re-doc-container {
   position: absolute;
   width: 100%;
+  min-width: 1680px;
   top:60px;
   left: 0;
   bottom: 0;

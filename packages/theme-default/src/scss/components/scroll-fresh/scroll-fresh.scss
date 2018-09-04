@@ -1,0 +1,86 @@
+/*
+ * @Description: undefined
+ * @author: zhongw@corp.21cn.com
+ * @Date: 2018-07-27 10:14:01
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-07-31 14:51:41
+ */
+
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(scroll-fresh) {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  .inner {
+    position: absolute;
+    top: -100px;
+    width: 100%;
+    overflow-x: hidden;
+    height: auto;
+    // transition-duration: 300ms;
+    .pull-refresh,
+    .load-more {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+      justify-content: center;
+      &>span {
+        font-size: 14px;
+      }
+    }
+    .load-more {
+      height: 100px;
+      line-height: 100px;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      &>span {
+        font-size: 14px;
+      }
+    }
+    .nullData {
+      //暂无更多数据样式
+      font-size: 14px;
+      color: #999999;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+    }
+    // .down-tip,
+    // .refresh-tip,
+    // .up-tip {
+    //   display: none;
+    // }
+    .up-tip:before,
+    .refresh-tip:before {
+      content: '';
+      display: inline-block;
+      width: 160px;
+      height: 70px;
+      background-size: 70% !important;
+      position: absolute;
+      top: 0;
+      left: 20%;
+    }
+    .up-tip:before {
+      // background: url(../img/down-logo.png) no-repeat center;
+    }
+    .refresh-tip:before {
+      // background: url(../img/refresh-logo.gif) no-repeat center;
+    }
+  }
+}

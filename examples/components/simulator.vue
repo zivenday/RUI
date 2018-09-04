@@ -1,11 +1,13 @@
 <template>
-  <div :class="['simulator', { 'simulator-fixed': isFixed }]">
+  <div class="simulator">
     <div class="simulator__nav">
       <div class="simulator__url">{{'Recharger'}}</div>
-       <!-- <div class="simulator__url">{{ iframeHostName }}</div> -->
+      <!-- <div class="simulator__url">{{ iframeHostName }}</div> -->
       <!--<div class="simulator__reload" @click="reloadIframe"></div> -->
     </div>
-    <iframe ref="iframe" :src="srcWithTimestamp" :style="simulatorStyle" frameborder="0" />
+    <div :class="['simulator__container', { 'simulator-fixed': isFixed }]">
+      <iframe ref="iframe" :src="srcWithTimestamp" :style="simulatorStyle" frameborder="0" />
+    </div>
   </div>
 </template>
 
@@ -65,7 +67,7 @@ export default {
     simulatorStyle () {
       const height = Math.min(680, this.windowHeight - 150)
       return {
-        height: height + 'px'
+        // height: height + 'px'
       }
     }
   },
@@ -98,47 +100,34 @@ export default {
 @import "../assets/scss/variable.scss";
 
 .simulator {
-  overflow: hidden;
-  border-radius: 6px;
-  box-sizing: border-box;
-  // right: $re-doc-padding;
-  width: 345px;
-  margin: 0 auto;
-  height: 695px;
-  // top: calc($re-doc-padding + $re-doc-header-top-height);
-
-  /*@media (max-width: 1300px) {*/
-  /*width: $re-doc-simulator-small-width;*/
-  /*min-width: $re-doc-simulator-small-width;*/
-  /*}*/
-
-  /*@media (max-width: 1100px) {*/
-  /*left: 750px;*/
-  /*right: auto;*/
-  /*}*/
-
-  /*@media (min-width: $re-doc-row-max-width) {*/
-  /*right: 50%;*/
-  /*margin-right: calc(-$re-doc-row-max-width/2 + 40px);*/
-  /*}*/
-  &-fixed {
-    position: fixed;
-    top: $re-doc-padding;
-  }
+  z-index: -3;
+  // position: relative;
+  // overflow: hidden;
+  // border-radius: 6px;
+  // box-sizing: border-box;
+  // background: #f1f1f1;
+  height: 100%;
+  // &-fixed {
+  //   position: fixed;
+  //   top: $re-doc-padding;
+  // }
 
   iframe {
-    margin-top: 100px;
+    padding-top: 100px;
     width: 100%;
     height: 100%;
-    display: block;
-    // z-index: -1;
+    box-sizing: border-box;
+    padding-left: 3px;
+    padding-right: 3px;
+        border-radius: 0 0 35px 35px;
   }
 
   &__nav {
     position: absolute;
-    width: 345px;
+    width: 310px;
     height: 100px;
-    background: #efefef url(../assets/image/ios_new_features_header1_2x.png) no-repeat;
+    background: #999 url(../assets/image/ios_new_features_header1_2x.png)
+      no-repeat;
     background-size: 100% 100%;
     z-index: -1;
   }
@@ -146,23 +135,26 @@ export default {
   &__url {
     left: 20px;
     top: 54px;
-    // right: 40px;
     font-size: 14px;
     position: absolute;
     text-align: center;
     font-weight: bold;
     line-height: 28px;
     border-radius: 5px;
-    width: 300px;
+    width: 265px;
     height: 30px;
     background-color: #fff;
     opacity: 0.7;
-    font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
+    // font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
 
     /*@media (max-width: 1300px) {*/
     /*top: 21px;*/
     /*line-height: 24px;*/
     /*}*/
+  }
+  &__container {
+    height: 100%;
+    border-radius: 0 0 35px 35px;
   }
 
   &__reload {

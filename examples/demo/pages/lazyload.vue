@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <div class="demo">111111</div>
-    <img v-for="img in imageList" v-lazy="img" >
+  <div class="container">
+    <p></p>
+    <r-lead>图片懒加载：</r-lead>
+    <p></p>
+    <img v-for="(img,index) in imageList" v-lazy="img" :key="index">
   </div>
 </template>
 <script>
@@ -23,21 +25,23 @@ export default {
   data () {
     return {
       imageList: [
-        'https://img.yzcdn.cn/public_files/2017/09/05/3bd347e44233a868c99cf0fe560232be.jpg',
-        'https://img.yzcdn.cn/public_files/2017/09/05/c0dab461920687911536621b345a0bc9.jpg',
-        'https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg',
-        'https://img.yzcdn.cn/public_files/2017/09/05/fd08f07665ed67d50e11b32a21ce0682.jpg'
+        'https://s1.ax1x.com/2018/08/23/PTXA8x.jpg',
+        'https://s1.ax1x.com/2018/08/23/PTXPa9.jpg',
+        'https://s1.ax1x.com/2018/08/23/PTXi5R.jpg',
+        'https://s1.ax1x.com/2018/08/23/PTXE26.jpg',
+        'https://s1.ax1x.com/2018/08/23/PTXCVJ.jpg',
+        'https://s1.ax1x.com/2018/08/23/PTXkP1.jpg'
       ]
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.demo{
-  height: 800px;
+.container {
+  padding-bottom: 30px;
 }
-img{
+img {
   width: 100%;
-  height: 300px;
+  height: auto
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-28 21:52:17 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-29 10:45:01
+ * @Last Modified time: 2018-08-14 15:48:10
  */
 
 import Vue from 'vue'
@@ -36,6 +36,8 @@ NoticeBox.notice = (options) => {
     options = { noticeList: options }
   } if (Object.prototype.toString.call(options) === '[object String]') {
     options = { noticeList: [options] }
+  } if (Object.prototype.toString.call(options) === '[object Object]') {
+    options = { noticeList: options.noticeList, scroll: options.scroll,callback:options.callback }
   }
   return NoticeBox(merge({ noticeList: ['这是一条通知！'], speed: 3000 }, options))
 }

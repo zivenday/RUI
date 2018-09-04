@@ -6,7 +6,9 @@ import App from './App'
 import VueRouter from 'vue-router'
 import routers from './router'
 import { isMobile } from './utils'
-
+import axios from 'axios'
+Vue.prototype.axios = axios
+require('./mock')
 const router = new VueRouter({
   mode: 'hash',
   base: '/',

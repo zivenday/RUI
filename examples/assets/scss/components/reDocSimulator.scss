@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-04 09:59:54 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-14 12:04:16
+ * @Last Modified time: 2018-08-23 07:00:32
  */
  @charset 'utf-8';
  @import '../normalize';
@@ -15,7 +15,8 @@
   top:20px;
   background: transparent url('../assets/image/hardware_portrait_silver_large.png') no-repeat;
   background-size:100% 100%;
-  width: 360px;
-  height: 700px;
+  // width: 360px;
+  height:664px;
   padding: 20px 20px;
+  overflow: hidden;
  }

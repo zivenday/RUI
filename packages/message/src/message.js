@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-04 14:45:44 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-17 11:05:43
+ * @Last Modified time: 2018-08-23 09:56:46
  */
 
 /* eslint-disable no-undef,semi,no-unused-vars,prefer-const,comma-dangle,import/newline-after-import,max-len,indent,arrow-body-style,object-shorthand,no-multi-spaces,no-param-reassign,dot-notation,comma-spacing,no-unused-expressions,keyword-spacing,space-in-parens,no-empty,key-spacing,consistent-return,no-else-return,padded-blocks,object-curly-spacing,no-lonely-if */
@@ -63,18 +63,51 @@ MessageBox.alert = (options) => {
     iconShow: true,
     iconClass: 'cuowu',
     closeOnPressEscape: false,
-    closeOnClickModal: false
+    closeOnClickModal: false,
+    hasModal: false
   }, options))
 }
+
+
+MessageBox.tips = (options) => {
+  if (options === undefined) {
+    options = {
+      title: 'Tips',
+      message: '这是一条提示！'
+    }
+  }
+  if (typeof options === 'string') {
+    options = {
+      message: options
+    }
+  }
+
+  setTimeout(() => {
+    !!instance ? Vue.nextTick(() => {
+      instance.showBox = false
+    }) : ''
+  }, 1500)
+
+  return MessageBox(merge({
+    title: options.title,
+    message: options.message,
+    closeOnPressEscape: false
+  }, options, {
+      iconShow: false,
+      $type: 'tips',
+      hasModal: false,
+      closeOnClickModal: false
+    }))
+}
+
 MessageBox.loading = (options) => {
   if (options !== false) { // 如果传入的不是false布尔值,则视为打开loading
-    if (options === undefined) {
+    if (typeof options !== 'string') {
       options = {
-        title: 'Loading',
-        message: '正在加载！'
+        title: '',
+        message: '正在加载...'
       }
-    }
-    if (typeof options === 'string') {
+    } else {
       options = {
         message: options
       }
@@ -93,7 +126,8 @@ MessageBox.loading = (options) => {
       iconShow: true,
       iconClass: 'jiazai',
       closeOnPressEscape: true,// 点击弹框外围消失
-      closeOnClickModal: false
+      closeOnClickModal: false,
+      hasModal: false
     }, options))
   } else {
     if (instance) {
@@ -118,7 +152,27 @@ MessageBox.confirm = (options) => {
     ensure: options.ensure
   }, options))
 }
+MessageBox.waiting = (options) => {
+  if (options !== false) { // 如果传入的不是false布尔值,则视为打开loading
+    return MessageBox(
+      {
+        title: '',
+        message: '',
+        iconShow: false,
+        $type: 'waiting',
+        hasModal: false,
+        closeOnClickModal: false
+      }
+    )
+  } else {
+    if (instance) {
+        setTimeout(()=>{
+          instance.showBox = false
+        },500)
+    }
+  }
 
+}
 
 export default MessageBox;
 export { MessageBox };

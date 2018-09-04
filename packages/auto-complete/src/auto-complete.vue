@@ -154,6 +154,7 @@ export default {
     },
     handleChange (value) {
       this.$emit('input', value)
+      // this.debouncedGetData(value)
       this.getData(value)
     },
     handleBlur (value) {

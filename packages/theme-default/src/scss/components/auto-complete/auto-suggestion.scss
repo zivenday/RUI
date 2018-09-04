@@ -11,7 +11,7 @@
     justify-content: center;
     z-index: 2018;
     overflow-y: auto;
-    width: 100%;
+    width: 200px;
     justify-content: center;
     background-color: $--color-white;
     // transition: all linear 0.3s;
@@ -24,6 +24,7 @@
     & ul li{
       display: block;
       height: 33px;
+      width: 200px;
       line-height: 1;
       font-size: 14px;
       padding:10px 5px;

@@ -4,7 +4,7 @@ import { clearInterval } from 'timers';
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-29 10:43:38
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-03 16:13:24
+ * @Last Modified time: 2018-08-14 00:42:17
  */
 <template>
   <transition name='fade'>
@@ -32,7 +32,7 @@ export default {
       showBox: false,
       options: {
         noticeList: [],
-        speed: 2000, // ms
+        speed: 1000, // ms
         scroll: 150, // px/s
         delay: 0 // s
       },
@@ -41,19 +41,21 @@ export default {
       frameWidth: 0,
       duration: 0,
       currentInterval: undefined,
-      text: ''
+      text: '',
+      begain: 0
     }
   },
   mounted () {
     // 实例化有延迟，这里适应性延迟
     setTimeout(() => {
+      // this.begain = 1
       this.num = this.options.noticeList.length - 1
       this.frameWidth = this.$refs['frame'][0].getBoundingClientRect().width
       const t = this.setCurrentDuration()
       if (this.num !== 0) { // 多条通知时，进入定时器控制
         this.currentInterval = setInterval(() => { this.setCurrentIndex() }, t)
       }
-    })
+    }, 500)
   },
   methods: {
     setCurrentIndex () {
@@ -93,6 +95,7 @@ export default {
     handleClick () {
       this.showBox = false
       this.$emit('close')
+      this.options.callback ? this.options.callback() : undefined
     }
   }
 }
