@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://at.aotu.io/">
-    <img width="100" src="https://github.com/githubziven/recharger/blob/master/examples/assets/favicon.ico">
+    <img width="100" src="https://github.com/githubziven/recharger/blob/master/examples/assets/15280966726844.png">
   </a>
 </p>
 
