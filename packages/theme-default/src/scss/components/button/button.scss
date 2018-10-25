@@ -52,11 +52,29 @@
   @include m(primary) {
     @include button-variant($--button-primary-color, $--button-primary-fill, $--button-primary-border);
   }
+  @include m(success) {
+    @include button-variant($--button-success-color, $--button-success-fill, $--button-success-border);
+  }
+  @include m(warning) {
+    @include button-variant($--button-warning-color, $--button-warning-fill, $--button-warning-border);
+  }
+  @include m(danger) {
+    @include button-variant($--button-danger-color, $--button-danger-fill, $--button-danger-border);
+  }
+  @include m(info) {
+    @include button-variant($--button-info-color, $--button-info-fill, $--button-info-border);
+  }
   @include m(plain) {
     @include button-variant($--button-plain-color, $--button-plain-fill, $--button-plain-border);
   }
+  @include m(mini) {
+    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
+  }
   @include m(small) {
     @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
+  }
+  @include m(medium) {
+    @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
   }
   @include m(fix) {
     @include button-fix($--button-fix-font-size, $--button-fix-width, $--button-fix-height);

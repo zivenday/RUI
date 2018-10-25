@@ -129,7 +129,7 @@ export default {
       rules: {
         name: { required: true, validator: abc, trigger: 'blur' }
       },
-      noticeList: ['订购成功后，如需查看订单，请关注【物联易充】微信公众号rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'],
+      noticeList: ['订购成功后，如需查看订单，请关注【翼家物联】微信公众号'],
       allData: [
         { 'value': '8986031540252320642', 'address': '长宁区新渔路144号' },
         { 'value': '8986031540252366666', 'address': '上海市长宁区淞虹路661号' },

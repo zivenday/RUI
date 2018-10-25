@@ -3,9 +3,11 @@
        'is-error': validateState === 'error',
        'is-success': validateState === 'success'
        }]">
-    <label v-if="label">{{label}}</label>
-    <slot :validateState="validateState" :validateMessage="validateMessage"></slot>
-    <div v-if="validateState === 'error'&& defaultErrorTips " class="r-form-item__error">
+    <div style="width:100%">
+      <label v-if="label" :style="{width: pxToview(labelWidth)}">{{label}}</label>
+      <slot :validateState="validateState" :validateMessage="validateMessage"></slot>
+    </div>
+    <div v-if="validateState === 'error'&& defaultErrorTips " :style="{paddingLeft: pxToview(labelWidth+10)}" class="r-form-item__error">
       {{validateMessage}}
     </div>
   </div>
@@ -16,6 +18,7 @@ import Schema from 'async-validator'
 import emitter from '../../utils/mixin/emitter.js'
 import objectAssign from '../../utils/merge'
 import { noop, getPropByPath } from '../../utils/util'
+import StyleFun from '../../utils/mixin/style'
 
 export default {
   name: 'RFormItem',
@@ -35,7 +38,7 @@ export default {
     },
     rules: [Object, Array]
   },
-  mixins: [emitter],
+  mixins: [emitter, StyleFun],
   computed: {
     form () {
       let parent = this.$parent
@@ -66,7 +69,8 @@ export default {
   data () {
     return {
       validateState: '',
-      validateMessage: ''
+      validateMessage: '',
+      labelWidth: ''
     }
   },
   provide () {
@@ -75,15 +79,25 @@ export default {
     }
   },
   mounted () {
+    this.labelWidth = this.rForm ? this.rForm.labelWidth : ''
+    // console.log('......', this.rForm.)
     this.dispatch('RForm', 'r.form.addField', [this])
     this.$on('r.form.change', val => { this.validate('change') })
   },
   methods: {
+    resetForm () {
+      // this.validateState = ''
+      // this.validateMessage = ''
+    },
+    clearValidate () {
+      this.validateState = ''
+      this.validateMessage = ''
+    },
     validate (trigger, callback = noop) {
       var rules = this.getFilteredRule(trigger)
       // console.log('trigger=', trigger, rules)
       if ((!rules || rules.length === 0) && this.required === undefined) {
-        callback({isValid:true})
+        callback({ isValid: true })
         return true
       }
       this.validateState = 'validating'
@@ -105,7 +119,7 @@ export default {
           callback({ isValid: false, error: errors[0].message })
         } else {
           this.validateState = 'success'
-          callback({isValid:true})
+          callback({ isValid: true })
         }
         // validation passed
       })

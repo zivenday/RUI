@@ -417,18 +417,18 @@ $--button-fix-height:46px !default;
 //$--button-fix-border-radius: #{$--border-radius-base + 1} !default;
 //$--button-fix-padding-vertical: 10px !default;
 //$--button-fix-padding-horizontal: 20px !default;
-$--button-medium-font-size: 14px !default;
+$--button-medium-font-size: 15px !default;
 $--button-medium-border-radius: $--border-radius-base !default;
 $--button-medium-padding-vertical: 10px !default;
 $--button-medium-padding-horizontal: 20px !default;
 $--button-small-font-size: 12px !default;
 $--button-small-border-radius: #{$--border-radius-base - 1} !default;
-$--button-small-padding-vertical: 9px !default;
+$--button-small-padding-vertical: 7px !default;
 $--button-small-padding-horizontal: 15px !default;
-$--button-mini-font-size: 12px !default;
+$--button-mini-font-size: 7px !default;
 $--button-mini-border-radius: #{$--border-radius-base - 1} !default;
-$--button-mini-padding-vertical: 7px !default;
-$--button-mini-padding-horizontal: 15px !default;
+$--button-mini-padding-vertical: 5px !default;
+$--button-mini-padding-horizontal: 12px !default;
 $--button-default-color: $--color-text-regular !default;
 $--button-default-fill: $--color-white !default;
 $--button-default-border: $--border-color-base !default;
@@ -470,6 +470,21 @@ $--cash-bulk-year-font-size:18px !default;
 $--cash-bulk-year-color:#151515 !default;
 $--cash-bulk-rmb-font-size:12px !default;
 $--cash-bulk-rmb-color: #666666 !default;
+
+/* coupon
+-------------------------- */
+$--coupon-width: 337px !default;
+$--coupon-height: 80px !default;
+$--coupon-border-radius:6px!default;
+$--coupon-failure: $--color-grey!default;
+$--coupon-failure-text:$--color-grey!default;
+$--coupon-failure-fill:#f1f1f1!default;
+$--coupon-failure-border:#D7D7D7!default;
+$--coupon-active:#B06300!default;
+$--coupon-active-fill:1px #FFF1DF!default;
+$--coupon-active-text:$--color-primary!default;
+$--coupon-active-border:rgba(248,139,0,0.20)!default;
+
 /* cascader
 -------------------------- */
 
@@ -498,8 +513,14 @@ $--count-bar-width:100px;
 $--count-bar-height:30px;
 $--count-bar-border-radius:6px;
 $--count-bar-fill:#f1f1f1;
-/* count-bar
+/* count-icon
 -------------------------- */
+$--count-icon-badge-fill-default:#FF3B30;
+$--count-icon-badge-fill-hollow:$--color-white;
+$--count-icon-badge-font:10px;
+$--count-icon-badge-color-default:$--color-white;
+$--count-icon-badge-color-hollow:#FF3B30;
+$--count-icon-badge-height:17px;
 
 $--notice-width:100%;
 $--notice-height:34px;

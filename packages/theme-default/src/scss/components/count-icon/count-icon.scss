@@ -1,0 +1,35 @@
+/*
+ * @Description: undefined
+ * @author: zhongw@corp.21cn.com
+ * @Date: 2018-10-10 12:16:03
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-10-10 17:01:57
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(count-icon) {
+  @include e(badge) {
+    position: absolute;
+    display: inline-table;
+    font-size: $--count-icon-badge-font;
+    text-align: center;
+    vertical-align: middle;
+    @include when(default) {
+      margin-top:-6px;
+      margin-left: -4px;
+      background-color: $--count-icon-badge-fill-default;
+      color: $--count-icon-badge-color-default;
+      border-radius: 17px;
+      padding:1px 4px;
+      box-sizing: border-box;
+    }
+    @include when(hollow) {
+      background-color: $--count-icon-badge-fill-hollow;
+      color: $--count-icon-badge-color-hollow;
+      border: 1px solid $--count-icon-badge-color-hollow;
+      border-radius: 17px
+    }
+  }
+}

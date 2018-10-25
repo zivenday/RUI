@@ -3,7 +3,7 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-10 18:19:04
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-10 18:31:50
+ * @Last Modified time: 2018-09-24 07:21:46
  */
 @charset 'utf-8';
 @import "../../helps/var.scss";
@@ -15,5 +15,6 @@
   top: 0;
   left: 0;
   background-color: rgba(51,51,51,0.50);
-  z-index:2000
+  z-index:2000;
+  pointer-events:none
 }

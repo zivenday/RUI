@@ -101,7 +101,6 @@ export default {
       this.$emit('focus', event.target.value)
     },
     setCurrentValue (value) {
-      // console.log(1111111)
       this.currentValue = value
       this.dispatch('RFormItem', 'r.form.change', [value])
     }

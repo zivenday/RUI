@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-05 10:31:01 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-26 11:29:17
+ * @Last Modified time: 2018-10-15 12:28:28
  */
 
 /* eslint-disable padded-blocks */
@@ -37,6 +37,6 @@ window.syncPath = function (dir) {
 }
 
 window.changePath = function (lang, path = '') {
-  console.log('????',window!==window.top,window.vueRouter)
+  // console.log('????',window!==window.top,window.vueRouter)
   window.vueRouter.replace(path)
 }

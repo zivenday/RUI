@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-05-31 15:25:00
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-04 17:32:45
+ * @Last Modified time: 2018-10-15 12:23:55
  */
 
 <template>
@@ -192,7 +192,7 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$router.push({ path: '/zh-CN/test' })
+      this.$router.push({ path: '/zh-CN/quickstart' })
     }
   }
 }

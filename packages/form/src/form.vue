@@ -10,7 +10,8 @@ export default {
   componentName: 'RForm',
   props: {
     model: Object,
-    rules: Object
+    rules: Object,
+    labelWidth: Number
   },
   provide () {
     return {
@@ -40,6 +41,13 @@ export default {
     }
   },
   methods: {
+    resetForm () {
+      if (this.$model) {
+        this.fields.forEach(field => {
+          field.resetForm()
+        })
+      }
+    },
     validate (callback) {
       if (!this.model) {
         console.warn('[Element Warn][Form]model is required for validate to work!')

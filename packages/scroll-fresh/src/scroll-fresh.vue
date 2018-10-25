@@ -122,14 +122,15 @@ export default {
       this.isTouch = true
     },
     handleScroll (ev) {
-      console.log(1111)
+      // console.log(1111)
       const _t = ev.target
       const scrollT = scrollUtils.getScrollTop(_t)
       const scrollH = scrollUtils.getVisibleHeight(_t)
       const elemH = _t.scrollHeight
       const bottom = elemH - (scrollH + scrollT)
-      console.log(1111, bottom)
+      // console.log(1111, bottom)
       if (bottom <= this.fetchMoreDistane && !this.noMore && !this.loading) {
+        console.log('111111111')
         this.infinite()
       }
     },

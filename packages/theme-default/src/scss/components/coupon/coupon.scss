@@ -1,0 +1,107 @@
+/*
+ * @Description: 优惠券
+ * @author: zhongw@corp.21cn.com
+ * @Date: 2018-10-09 14:50:34
+ * @Last Modified by: zhongw@corp.21cn.com
+ * @Last Modified time: 2018-10-10 11:39:36
+ */
+
+@charset 'utf-8';
+@import "../../helps/var.scss";
+@import "../../helps/mixin.scss";
+@include b(coupon) {
+  width: $--coupon-width;
+  height: $--coupon-height;
+  zoom: 1;
+  border-radius: $--coupon-border-radius; // padding: 10px 0;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  @include m(active) {
+    background-image: url('../assets/img/coupon-active.png');
+  }
+  @include m(failure) {
+    background-image: url('../assets/img/coupon-failure.png');
+  }
+  &>div {
+    float: left;
+  }
+  @include e(header) {
+    width: 239px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    padding-left: 17px;
+    .header {
+      &__cur {
+        font-size: 14px;
+        font-family: PingFangSC-Medium;
+        line-height: 25px;
+      }
+      &__price {
+        font-size: 30px;
+        font-family: PingFangSC-Medium;
+        line-height: 25px;
+      }
+      &__name {
+        font-size: 14px;
+        font-family: PingFangSC-Medium;
+        line-height: 25px;
+      }
+      &__limit {
+        font-size: 10px;
+        line-height: 15px;
+        font-family: PingFangSC-Regular;
+        padding-left: 2px;
+        letter-spacing: 0.5px;
+      }
+      &__validity {
+        font-size: 10px;
+        line-height: 15px;
+        font-family: PingFangSC-Regular;
+        padding-left: 2px;
+        letter-spacing: 0.5px;
+      }
+    }
+    @include when(active) {
+      .header__cur,
+      .header__price,
+      .header__name {
+        color: #F88B00;
+      }
+      .header__limit,
+      .header__validity {
+        color: #B06300;
+      }
+    }
+    @include when(failure) {
+      @each $i in cur,
+      price,
+      name,
+      limit,
+      validity {
+        .header__#{$i} {
+          color: $--color-grey
+        }
+      }
+    }
+  }
+  @include e(line) {
+    height: 60px;
+    width: 1px;
+    margin-top: 10px;
+  }
+  @include e(footer) {
+    width: 96px;
+    height: 100%;
+    @include when(failure) {
+      padding: 8px;
+      box-sizing: border-box;
+      &>div {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: url('../assets/img/coupon-failure-footer.png');
+      }
+    }
+  }
+}

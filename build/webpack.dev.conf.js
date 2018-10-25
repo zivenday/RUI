@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-14 09:59:06 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-06-14 12:05:32
+ * @Last Modified time: 2018-09-11 21:26:37
  */
 'use strict'
 const utils = require('./utils')
@@ -99,7 +99,6 @@ module.exports = new Promise((resolve, reject) => {
         ? utils.createNotifierCallback()
         : undefined
       }))
-
       resolve(devWebpackConfig)
     }
   })

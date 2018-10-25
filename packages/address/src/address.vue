@@ -50,7 +50,6 @@ export default {
   computed: {
     value: {
       get () {
-        // console.log(this.bulkInfo,this._addressGroup.value, value)
         return this._addressGroup ? this._addressGroup.value : this.info
       },
       set: function () {
@@ -67,7 +66,6 @@ export default {
         if (parent.$options.name !== 'RAddressGroup') {
           parent = parent.$parent
         } else {
-          // console.log('????>>>>', parent)
           return parent
         }
       }

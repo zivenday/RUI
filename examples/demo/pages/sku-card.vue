@@ -25,7 +25,7 @@ export default {
   },
   mounted () {
     this.skuCard({}).then(res => {
-      console.log('????', res)
+      // console.log('????', res)
       if (!res.data.code) {
         this.skuCard1 = res.data.skuCard
       }

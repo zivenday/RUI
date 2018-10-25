@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com 
  * @Date: 2018-06-28 17:41:03 
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-08-27 14:44:48
+ * @Last Modified time: 2018-10-15 12:01:39
  */
 /* eslint-disable */
 module.exports = {
@@ -33,11 +33,11 @@ module.exports = {
                 title: '首页',
                 noExample: true
               },
-              {
-                path: '/intro',
-                title: '介绍',
-                noExample: true
-              },
+              // {
+              //   path: '/intro',
+              //   title: '介绍',
+              //   noExample: true
+              // },
               {
                 path: '/quickstart',
                 title: '快速上手',
@@ -51,35 +51,44 @@ module.exports = {
         name: '组件',
         showInMobile: true,
         groups: [
-          {
-            groupName: '测试',
-            list: [
-              {
-                path: '/test',
-                title: 'Test - 测试'
-              }
-            ]
-          },
+          // {
+          //   groupName: '测试',
+          //   list: [
+          //     {
+          //       path: '/test',
+          //       title: 'Test - 测试'
+          //     }
+          //   ]
+          // },
           {
             groupName: '基础组件',
             list: [
               {
                 path: '/layout',
                 title: 'Layout - 布局'
+              }, {
+                path: '/button',
+                title: 'Button - 按钮'
+              },
+              //  {
+              //   path: '/checkbox',
+              //   title: 'Checkbox - 复选框'
+              // },
+              {
+                path: '/inputs',
+                title: 'Input - 输入框'
+              }, {
+                path: '/form',
+                title: 'Form - 表单'
+              }, {
+                path: '/icon',
+                title: 'Icon - 图标'
               }
             ]
           },
           {
-            groupName: '输入与选择',
+            groupName: '通知交互',
             list: [
-              {
-                path: '/checkbox',
-                title: 'Checkbox - 复选框'
-              },
-              {
-                path: '/inputs',
-                title: 'Input - 输入框'
-              },
               {
                 path: '/page-navbar',
                 title: 'PageNavbar - 箭头导航栏'
@@ -94,7 +103,7 @@ module.exports = {
                 title: 'Message - 交互弹框'
               }, {
                 path: '/region-choose',
-                title: 'regionChoose - 区域选择'
+                title: 'RegionChoose - 区域选择'
               }
             ]
           },
@@ -126,7 +135,7 @@ module.exports = {
           {
             groupName: '业务组件',
             list: [
-               {
+              {
                 path: '/pay-bottombar',
                 title: 'PayBottombar - 支付底栏'
               }, {
@@ -138,14 +147,20 @@ module.exports = {
               }, {
                 path: '/simple-sku',
                 title: 'SimpleSku - 商品套餐确定'
-              }, 
-              // {
-              //   path: '/product',
-              //   title: 'Product - 商品展示页'
-              // },
-               {
+              },
+              {
+                path: '/cash-bulk',
+                title: 'CashBulk - 套餐单选'
+              },
+              {
                 path: '/sku-card',
                 title: 'SkuCard - 商品套餐卡片'
+              }, {
+                path: '/coupon',
+                title: 'Coupon - 优惠券'
+              }, {
+                path: '/count-icon',
+                title: 'CountIcon - 计数图标'
               }
             ]
           }

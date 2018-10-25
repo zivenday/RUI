@@ -2,7 +2,7 @@
  * @Author: zhongw@corp.21cn.com
  * @Date: 2018-06-12 15:38:26
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-08-02 16:01:47
+ * @Last Modified time: 2018-10-10 12:15:40
  */
 import RButton from './button'
 import RLead from './lead'
@@ -39,6 +39,8 @@ import RRegionChoose from './region-choose'
 import RProduct from './product'
 import RSkuCard from './sku-card'
 import RScrollFresh from './scroll-fresh'
+import RCoupon from './coupon'
+import RCountIcon from './count-icon'
 
 const components = [
   RButton,
@@ -72,7 +74,10 @@ const components = [
   RRegionChoose,
   RProduct,
   RSkuCard,
-  RScrollFresh
+  RScrollFresh,
+  RCoupon,
+  RCountIcon
+
   // RCollapseTransition
 ]
 
@@ -133,7 +138,9 @@ export {
   RRegionChoose,
   RProduct,
   RSkuCard,
-  RScrollFresh
+  RScrollFresh,
+  RCoupon,
+  RCountIcon
 }
 
 export default {

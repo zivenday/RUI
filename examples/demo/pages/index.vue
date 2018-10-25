@@ -35,7 +35,7 @@ export default {
   },
   created () {
     docConfig['zh-CN']['nav'][1].groups.forEach(e => { e.isShow = false })
-    console.log('??????', docConfig['zh-CN']['nav'][1].groups)
+    // console.log('??????', docConfig['zh-CN']['nav'][1].groups)
   }
 }
 </script>

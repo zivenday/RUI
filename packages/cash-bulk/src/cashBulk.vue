@@ -25,6 +25,7 @@ export default {
   },
   computed: {
     value: {
+      set () { },
       get () {
         // console.log(this.bulkInfo,this._cashBulkGroup.value, value)
         return this._cashBulkGroup.value
@@ -46,7 +47,12 @@ export default {
   },
   methods: {
     handleTouchStart (evt) {
+      console.log(JSON.stringify(this.value) === JSON.stringify(this.bulkInfo))
       this._cashBulkGroup.$emit('input', this.bulkInfo)
+      if (JSON.stringify(this.value) === JSON.stringify(this.bulkInfo)) {
+      } else {
+        this.handleChange()
+      }
     },
     handleChange () {
       this.$nextTick(() => {

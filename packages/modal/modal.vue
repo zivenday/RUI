@@ -3,12 +3,12 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-10 17:35:33
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-07-13 15:03:25
+ * @Last Modified time: 2018-10-16 17:01:27
  @touchmove.prevent.stop
  */
 <template>
   <transition name="r-fade">
-    <div v-show="visible" @touchmove.prevent.stop class="r-modal" />
+    <div v-show="visible" @touchmove.prevent.stop class="r-modal" @click="click"/>
   </transition>
 </template>
 

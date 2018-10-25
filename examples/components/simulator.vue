@@ -81,7 +81,7 @@ export default {
     },
     onSrcChanged () {
       const { iframe } = this.$refs
-      console.log('////', iframe && iframe.contentWindow)
+      // console.log('////', iframe && iframe.contentWindow)
       if (iframe && iframe.contentWindow) {
         if (this.src.indexOf('://') !== -1) {
           this.iframeHostName = this.src.split('://')[1].split('/')[0]

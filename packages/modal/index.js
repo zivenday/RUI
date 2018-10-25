@@ -36,9 +36,6 @@ export default {
       if (this.lockScroll) {
         on(document, 'touchstart', this.touchStart);
         on(document, 'touchmove', this.onTouchMove);
-        // if (!context.lockCount) {
-        //   document.body.classList.add('hidden-overflow');
-        // }
         document.body.classList.add('hidden-overflow');
         context.lockCount++;
       }

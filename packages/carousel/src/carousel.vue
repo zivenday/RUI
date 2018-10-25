@@ -3,7 +3,7 @@
  * @author: zhongw@corp.21cn.com
  * @Date: 2018-07-16 17:05:49
  * @Last Modified by: zhongw@corp.21cn.com
- * @Last Modified time: 2018-08-30 23:41:55
+ * @Last Modified time: 2018-09-18 17:49:40
  */
 <template>
   <div class="r-carousel" :style="{width:'100%',height:!isNullHight?pxToview(height):pxToview(itemHeight)}">
@@ -147,7 +147,6 @@ export default {
       this.isTouch = true
       this.moving = false
       clearInterval(this.interval)
-      console.log('????????????????', this.currentIndex)
       this.touchStart(ev)
     },
     onTouchMove (ev) {

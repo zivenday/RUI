@@ -33,7 +33,7 @@ export default {
   },
   mounted () {
     this.pageNavbar({}).then(res => {
-      console.log('????', res)
+      // console.log('????', res)
       if (!res.data.code) {
         // console.log('>>>>>>>>', res.data.pageNavbar)
         this.pageNavbar1 = res.data.addrInfo
