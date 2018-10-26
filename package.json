@@ -55,7 +55,7 @@
     "gulp-sass": "^3.2.1",
     "imagemin": "^5.3.1",
     "markdown-it-container": "^2.0.0",
-    "mini-css-extract-plugin": "^0.4.0",
+    "mini-css-extract-plugin": "^0.4.4",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.8.3",
     "npm": "^5.10.0",
