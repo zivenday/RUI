@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[44],{JuyF:function(t,n,u){"use strict";u.r(n);var e={created:function(){this.content=unescape("%3Ch1%3ECash-bulk%20%u5957%u9910%u9009%u62E9%3C/h1%3E%0A%3Cp%3E%u672C%u9875%u4ECB%u7ECD%u5957%u9910%u9009%u62E9%3C/p%3E%0A")}},s=u("KHd+"),c=Object(s.a)(e,function(){this.$createElement;this._self._c;return this._m(0)},[function(){var t=this.$createElement;return(this._self._c||t)("section",{domProps:{innerHTML:this._s(this.content)}})}],!1,null,null,null);n.default=c.exports}}]);
+//# sourceMappingURL=44.js.map

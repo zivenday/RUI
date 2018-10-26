@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[31],{N6Br:function(t,n,e){"use strict";e.r(n);var u={created:function(){this.content=unescape("%3Ch1%3Eproduct%20%u5546%u54C1%u5C55%u793A%3C/h1%3E%0A%3Cp%3E%u672C%u9875%u4ECB%u7ECD%u5546%u54C1%u5C55%u793A%3C/p%3E%0A")}},s=e("KHd+"),c=Object(s.a)(u,function(){this.$createElement;this._self._c;return this._m(0)},[function(){var t=this.$createElement;return(this._self._c||t)("section",{domProps:{innerHTML:this._s(this.content)}})}],!1,null,null,null);n.default=c.exports}}]);
+//# sourceMappingURL=31.js.map
